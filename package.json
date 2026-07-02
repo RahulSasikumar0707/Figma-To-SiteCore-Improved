@@ -1,0 +1,23 @@
+{
+  "name": "figma-eds-converter",
+  "version": "1.0.0",
+  "description": "Convert Figma designs into pixel-accurate, responsive Sitecore EDS components (HTML/CSS/JS + Bootstrap 5)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "convert": "node src/index.js",
+    "manifest": "node src/index.js --manifest-only"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.57.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
+    "dotenv": "^16.4.5",
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0",
+    "puppeteer": "^25.3.0"
+  }
+}

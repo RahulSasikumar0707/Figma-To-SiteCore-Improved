@@ -1,0 +1,144 @@
+import path from 'node:path';
+import { writeFileEnsured, safeFileName } from '../utils/fsx.js';
+import { log } from '../utils/log.js';
+
+/**
+ * Downloads every detected asset into <outputDir>/assets/{images|icons|vectors}.
+ *  - image fills  -> original bitmap via the file's imageRef URLs (best quality)
+ *  - icons/vector -> server-rendered SVG
+ *  - fallback     -> PNG render at 2x
+ * Returns the asset manifest with relative paths the generated HTML must use.
+ */
+export async function downloadAssets({ rest, fileKey, assets, outputDir }) {
+  if (!assets.length) return [];
+  const taken = new Set();
+  const manifest = [];
+
+  const byExport = {
+    imageRef: assets.filter((a) => a.export === 'imageRef' && a.imageRef),
+    svg: assets.filter((a) => a.export === 'svg'),
+    png: assets.filter((a) => a.export === 'png' || (a.export === 'imageRef' && !a.imageRef)),
+  };
+
+  // 1) Original image fills
+  let fillUrls = {};
+  if (byExport.imageRef.length) {
+    try {
+      fillUrls = await rest.getImageFills(fileKey);
+    } catch (err) {
+      log.warn(`Could not fetch original image fills (${err.message}); falling back to PNG renders.`);
+      byExport.png.push(...byExport.imageRef);
+      byExport.imageRef = [];
+    }
+  }
+  for (const asset of byExport.imageRef) {
+    const url = fillUrls[asset.imageRef];
+    if (!url) {
+      byExport.png.push(asset);
+      continue;
+    }
+    try {
+      const buf = await rest.download(url);
+      const ext = sniffExt(buf, 'png');
+      const file = `assets/images/${safeFileName(asset.name, ext, taken)}`;
+      writeFileEnsured(path.join(outputDir, file), buf);
+      manifest.push({ ...asset, file });
+    } catch (err) {
+      log.warn(`Image fill download failed for "${asset.name}": ${err.message}`);
+      byExport.png.push(asset);
+    }
+  }
+
+  // 2) SVG renders (icons & vector art)
+  if (byExport.svg.length) {
+    let urls = {};
+    try {
+      urls = await rest.renderImages(fileKey, byExport.svg.map((a) => a.nodeId), { format: 'svg' });
+    } catch (err) {
+      log.warn(`SVG render batch failed (${err.message}); falling back to PNG renders.`);
+    }
+    for (const asset of byExport.svg) {
+      const url = urls[asset.nodeId];
+      if (!url) {
+        byExport.png.push(asset);
+        continue;
+      }
+      try {
+        const buf = await rest.download(url);
+        const sub = asset.kind === 'icon' ? 'icons' : 'vectors';
+        const file = `assets/${sub}/${safeFileName(asset.name, 'svg', taken)}`;
+        writeFileEnsured(path.join(outputDir, file), buf);
+        manifest.push({ ...asset, file });
+      } catch (err) {
+        log.warn(`SVG export failed for "${asset.name}": ${err.message}`);
+        byExport.png.push(asset);
+      }
+    }
+  }
+
+  // 3) PNG fallback renders
+  if (byExport.png.length) {
+    let urls = {};
+    try {
+      urls = await rest.renderImages(fileKey, byExport.png.map((a) => a.nodeId), { format: 'png', scale: 2 });
+    } catch (err) {
+      log.warn(`PNG render batch failed (${err.message}); ${byExport.png.length} asset(s) skipped.`);
+    }
+    for (const asset of byExport.png) {
+      const url = urls[asset.nodeId];
+      if (!url) {
+        log.warn(`Figma could not render "${asset.name}" (${asset.nodeId}); skipped.`);
+        continue;
+      }
+      try {
+        const buf = await rest.download(url);
+        const file = `assets/images/${safeFileName(asset.name, 'png', taken)}`;
+        writeFileEnsured(path.join(outputDir, file), buf);
+        manifest.push({ ...asset, file });
+      } catch (err) {
+        log.warn(`PNG export failed for "${asset.name}": ${err.message}`);
+      }
+    }
+  }
+
+  log.ok(`Downloaded ${manifest.length}/${assets.length} assets into ${path.join(outputDir, 'assets')}`);
+  return manifest;
+}
+
+/**
+ * Exports the reference screenshot of the whole node for the review loop.
+ * Claude vision rejects images over 8000px / ~5MB, and tall landing pages
+ * easily exceed both at 2x — so the scale is fitted to the node size and a
+ * compact JPEG is produced for the reviewer alongside the PNG used for
+ * pixel-diffing.
+ */
+export async function downloadReferenceScreenshot({ rest, fileKey, nodeId, nodeSize, outputDir }) {
+  const maxSide = Math.max(nodeSize?.w || 1440, nodeSize?.h || 1440);
+  const pngScale = Math.min(1, 3800 / maxSide);
+  const jpgScale = Math.min(1, 2800 / maxSide);
+
+  const [pngUrls, jpgUrls] = await Promise.all([
+    rest.renderImages(fileKey, [nodeId], { format: 'png', scale: pngScale }),
+    rest.renderImages(fileKey, [nodeId], { format: 'jpg', scale: jpgScale }),
+  ]);
+
+  let png = null;
+  let jpg = null;
+  if (pngUrls[nodeId]) {
+    png = await rest.download(pngUrls[nodeId]);
+    writeFileEnsured(path.join(outputDir, 'reference', 'figma-design.png'), png);
+  }
+  if (jpgUrls[nodeId]) {
+    jpg = await rest.download(jpgUrls[nodeId]);
+  }
+  return { png, jpg, pngScale };
+}
+
+function sniffExt(buf, dflt) {
+  if (buf.length > 3 && buf[0] === 0xff && buf[1] === 0xd8) return 'jpg';
+  if (buf.length > 7 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) return 'png';
+  if (buf.length > 11 && buf.toString('ascii', 8, 12) === 'WEBP') return 'webp';
+  if (buf.length > 4 && buf.toString('ascii', 0, 5) === '<?xml') return 'svg';
+  if (buf.length > 3 && buf.toString('ascii', 0, 4) === 'GIF8') return 'gif';
+  return dflt;
+}
