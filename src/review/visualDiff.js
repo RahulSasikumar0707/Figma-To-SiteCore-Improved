@@ -47,6 +47,68 @@ export async function renderGeneratedPage(outputDir, { width = 1440, scale = 1 }
   }
 }
 
+/**
+ * Deterministic responsiveness gate: loads the generated page at each given
+ * viewport width and flags horizontal overflow — the most common responsive
+ * failure, and one that doesn't need an LLM's visual judgment to catch.
+ * Returns issues in the same shape reviewer.js uses, so index.js can merge
+ * them straight into the fix list the generator receives.
+ */
+export async function checkResponsiveness(outputDir, widths = [390, 768]) {
+  let puppeteer;
+  try {
+    puppeteer = (await import('puppeteer')).default;
+  } catch {
+    return [];
+  }
+  const issues = [];
+  for (const width of widths) {
+    let browser;
+    try {
+      browser = await puppeteer.launch({ headless: 'new' });
+      const page = await browser.newPage();
+      await page.setViewport({ width, height: 900 });
+      await page.goto(pathToFileURL(path.join(outputDir, 'index.html')).href, { waitUntil: 'networkidle0', timeout: 60000 });
+      await new Promise((r) => setTimeout(r, 500)); // fonts settle
+      const result = await page.evaluate(() => {
+        const viewportWidth = window.innerWidth;
+        const docWidth = document.documentElement.scrollWidth;
+        const overflowPx = docWidth - viewportWidth;
+        const offenders = [];
+        if (overflowPx > 1) {
+          for (const el of document.body.querySelectorAll('*')) {
+            const rect = el.getBoundingClientRect();
+            if (rect.width > 0 && rect.right > viewportWidth + 1) {
+              const label = el.id
+                ? `#${el.id}`
+                : typeof el.className === 'string' && el.className.trim()
+                  ? `.${el.className.trim().split(/\s+/)[0]}`
+                  : el.tagName.toLowerCase();
+              offenders.push({ label, overflowBy: Math.round(rect.right - viewportWidth) });
+            }
+          }
+          offenders.sort((a, b) => b.overflowBy - a.overflowBy);
+        }
+        return { docWidth, viewportWidth, overflowPx, offenders: offenders.slice(0, 5) };
+      });
+      if (result.overflowPx > 1) {
+        const top = result.offenders.map((o) => `${o.label} (+${o.overflowBy}px)`).join(', ');
+        issues.push({
+          severity: 'critical',
+          area: `Responsiveness @ ${width}px`,
+          description: `Horizontal overflow of ${Math.round(result.overflowPx)}px at ${width}px viewport (scrollWidth ${result.docWidth}px vs viewport ${result.viewportWidth}px). Worst offenders: ${top || 'unknown — likely a deeply nested or overflow:hidden ancestor'}.`,
+          fix: `At ${width}px, remove/relax the fixed px width causing this element to exceed the viewport — use max-width: 100%, fluid/percentage widths, or a media query that stacks the layout into a single column below ${width + 1}px.`,
+        });
+      }
+    } catch (err) {
+      log.warn(`Responsiveness check at ${width}px failed: ${err.message}`);
+    } finally {
+      await browser?.close().catch(() => {});
+    }
+  }
+  return issues;
+}
+
 export async function pixelMismatch(figmaPng, renderPng, outputDir = null) {
   try {
     const { PNG } = await import('pngjs');

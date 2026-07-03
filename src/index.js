@@ -32,7 +32,7 @@ import { matchSections, shortlistedComponents } from './eds/matcher.js';
 import { makeClient, resolveModel } from './llm/anthropicClient.js';
 import { generate, refine } from './llm/generator.js';
 import { review } from './llm/reviewer.js';
-import { renderGeneratedPage, pixelMismatch } from './review/visualDiff.js';
+import { renderGeneratedPage, pixelMismatch, checkResponsiveness } from './review/visualDiff.js';
 import { findEdsNativeCss, writeGeneratedFiles, writeReport } from './output/writer.js';
 
 async function main() {
@@ -199,6 +199,14 @@ async function main() {
         diffImage,
         pixelMismatchPct: lastPixel,
       });
+      if (cfg.visualDiff) {
+        const responsivenessIssues = await checkResponsiveness(outputDir);
+        if (responsivenessIssues.length) {
+          log.warn(`Responsiveness gate: ${responsivenessIssues.length} horizontal-overflow issue(s) at mobile/tablet widths.`);
+          lastReview.issues = [...responsivenessIssues, ...lastReview.issues];
+        }
+      }
+
       const sev = (s) => lastReview.issues.filter((i) => i.severity === s).length;
       iterations.push({ score: lastReview.score, issueCount: lastReview.issues.length, critical: sev('critical'), major: sev('major'), minor: sev('minor') });
       finalScore = lastReview.score;

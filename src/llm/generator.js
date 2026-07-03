@@ -68,7 +68,10 @@ NON-NEGOTIABLE RULES
    (omit header/footer wrappers only if the design has no such section).
 4. BOOTSTRAP 5. Use the Bootstrap grid (container-fluid / row / col-*) for layout and Bootstrap behaviors (data-bs-* for collapse, carousel, modal, dropdown, tabs) instead of writing custom JS where Bootstrap covers it. No jQuery.
 5. ASSETS. Use ONLY the image/icon/vector files listed in the asset manifest, via their exact relative paths (assets/...). Every image visible in the design must appear in the HTML (or as a CSS background when the spec marks it bgImage). Set width/height or aspect-ratio to prevent layout shift, alt text from the layer name, img-fluid where appropriate. For large banner/hero images use the EDS <picture> pattern with (min-width:992px) / (min-width:768px) / (min-width:0px) sources.
-6. RESPONSIVE. Mobile-first. The spec's frame geometry describes the desktop layout; derive tablet (>=768px) and mobile (<768px) behavior from the auto-layout semantics (row layouts stack into columns on mobile unless they are small inline groups; grids of N cards become 2-up on tablet and 1-up on mobile via col-12 col-md-6 col-lg-*). Nothing may overflow the viewport at 375px, 768px or 1440px.
+6. RESPONSIVENESS
+- The output must work at mobile 390px, tablet 768px, and desktop 1440px widths.
+- No viewport may have horizontal page overflow, clipped text, or important elements extending off-screen.
+- Use fluid widths, max-width, responsive grid/flex behavior, and media queries when Figma desktop bboxes cannot fit smaller screens.
 7. CSS QUALITY. styles.css loads AFTER eds-native.css, so your rules override EDS defaults when the design differs — override deliberately and minimally, scoped to the component (e.g. .eds-hero-banner .hero-title { ... }). Do not use !important unless a Bootstrap utility must be beaten.
 8. The layout semantics in the spec map directly: layout.mode=row -> display:flex;flex-direction:row, mode=column -> flex-direction:column, gap -> gap, padding -> padding, justify/align -> justify-content/align-items, sizing fill -> flex:1/width:100%, hug -> fit-content, fixed -> exact px (desktop only; relax responsively).
 
