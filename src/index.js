@@ -142,7 +142,12 @@ async function main() {
   // ── 6. Generate ───────────────────────────────────────────────────────────
   const genClient = makeClient(cfg.anthropicKeyGenerator);
   const revClient = makeClient(cfg.anthropicKeyReviewer);
-  cfg.model = await resolveModel(genClient, cfg.model);
+  const resolved = await resolveModel(genClient, cfg.model);
+  cfg.model = resolved.id;
+  if (resolved.outputCap && cfg.maxOutputTokens > resolved.outputCap) {
+    log.warn(`LLM_MAX_TOKENS ${cfg.maxOutputTokens} exceeds the ${cfg.model} output cap (${resolved.outputCap}) — clamping.`);
+    cfg.maxOutputTokens = resolved.outputCap;
+  }
   log.info(`Using model: ${cfg.model}`);
   const ctx = {
     designName,

@@ -104,17 +104,23 @@ export function buildGeneratorContext(ctx) {
   return parts.join('\n\n');
 }
 
+// Steers max_tokens continuation rounds (see complete()): tells the model
+// what a complete response contains so it resumes instead of wrongly
+// declaring the cut-off output finished.
+const CONTINUATION_HINT = 'Reminder — the complete response contains, in order: ===FILE: index.html===, ===FILE: css/styles.css===, ===FILE: js/script.js===, ===FILE: component-map.json===, then ===END===. Emit whatever part of that is still missing, continuing mid-file if the cut happened inside one.';
+
 export async function generate({ client, model, maxTokens, ctx }) {
   log.step('Generator (API key 1): producing EDS + Bootstrap code from the design spec…');
-  const { text, usage, stopReason } = await complete({
+  const { text, usage, truncated } = await complete({
     client,
     model,
     maxTokens,
     system: systemPrompt(),
     messages: [{ role: 'user', content: buildGeneratorContext(ctx) }],
+    continuationHint: CONTINUATION_HINT,
   });
   log.info(`Generator tokens — in: ${usage?.input_tokens}, out: ${usage?.output_tokens}`);
-  const files = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
+  const files = parseGeneratedFiles(text, { truncated });
   assertFiles(files);
   return files;
 }
@@ -150,17 +156,18 @@ export async function refine({ client, model, maxTokens, ctx, files, review, pix
   }
   content.push({ type: 'text', text: prompt });
 
-  const { text, usage, stopReason } = await complete({
+  const { text, usage, truncated } = await complete({
     client,
     model,
     maxTokens,
     system: systemPrompt(),
     messages: [{ role: 'user', content }],
+    continuationHint: CONTINUATION_HINT,
   });
   log.info(`Refine tokens — in: ${usage?.input_tokens}, out: ${usage?.output_tokens}`);
   // A max_tokens-truncated final file is dropped by the parser, so the merge
   // below keeps the previous complete version instead of a cut-off one.
-  const updated = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
+  const updated = parseGeneratedFiles(text, { truncated });
   // keep any file the model failed to re-emit
   const merged = { ...files, ...updated };
   assertFiles(merged);

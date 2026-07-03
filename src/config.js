@@ -34,7 +34,10 @@ export function loadConfig(argv = []) {
     anthropicKeyGenerator: process.env.ANTHROPIC_API_KEY_1 || process.env.ANTHROPIC_API_KEY || '',
     anthropicKeyReviewer: process.env.ANTHROPIC_API_KEY_2 || process.env.ANTHROPIC_API_KEY_1 || process.env.ANTHROPIC_API_KEY || '',
     model: process.env.ANTHROPIC_MODEL || 'claude-fable-5',
-    maxOutputTokens: num(process.env.LLM_MAX_TOKENS, 32000),
+    // 64000 fits every model in the fallback chain (Haiku 4.5 caps at 64K;
+    // Fable/Opus/Sonnet allow 128K); index.js clamps to the resolved model's
+    // real cap. Truncated responses are auto-continued in anthropicClient.js.
+    maxOutputTokens: num(process.env.LLM_MAX_TOKENS, 64000),
 
     // --- Figma sources ---
     figmaToken: process.env.FIGMA_TOKEN || '',
