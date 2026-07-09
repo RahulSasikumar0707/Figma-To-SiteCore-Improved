@@ -10,7 +10,6 @@ export function findEdsNativeCss(cfg) {
     path.join(cfg.cwd, 'assets', 'eds', 'styles', 'eds-native.css'),
     path.join(cfg.cwd, 'eds-native.css'),
     path.join(cfg.cwd, '..', 'assets', 'eds', 'styles', 'eds-native.css'),
-    path.join(cfg.edsComponentsDir, '..', 'assets', 'eds', 'styles', 'eds-native.css'),
   ].filter(Boolean);
   for (const p of candidates) {
     try {

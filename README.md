@@ -67,7 +67,7 @@ heatmap to both agents — the reviewer to find issues, the generator to fix the
 ```bash
 npm start                       # converts FIGMA_FILE_KEY / FIGMA_NODE_ID from .env
 node src/index.js --node 12:34  # override the node per run
-node src/index.js --manifest-only   # rebuild eds-manifest.json by scanning eds-components/
+node src/index.js --manifest-only   # rebuild eds-manifest.json from the EDS Storybook
 ```
 
 Each run creates a fresh folder:
@@ -91,6 +91,9 @@ Output_1/
 - `eds-manifest.json` — deep metadata for all 37 EDS components (classes, modifiers,
   variants, keywords, canonical snippets). Regenerate a basic version with
   `--manifest-only`; the curated one checked in was produced by multi-agent analysis.
+- `src/eds/storybook.js` — fetches each component's live DOM snippet from the EDS
+  redesign Storybook (`EDS_STORYBOOK_BASE`, default `https://affinitycmpd103.gilead.com`).
+  Snippets are refreshed from Storybook on every run and used to ground the agents.
 - `src/figma/normalize.js` — Figma tree → layout spec + asset detection algorithms.
 - `src/eds/matcher.js` — section→component scoring heuristics.
 - `src/llm/generator.js` / `src/llm/reviewer.js` — the two-key agent loop.

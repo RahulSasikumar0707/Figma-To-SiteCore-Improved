@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import path from 'node:path';
-import fs from 'node:fs';
 
 // override:true makes the project's .env the source of truth — otherwise a
 // stale FIGMA_NODE_ID exported in the shell (or set as a Windows user env
@@ -45,8 +44,8 @@ export function loadConfig(argv = []) {
     figmaSource: (args.source || process.env.FIGMA_SOURCE || 'auto').toLowerCase(),
 
     // --- EDS / Bootstrap ---
-    edsComponentsDir: path.resolve(cwd, process.env.EDS_COMPONENTS_DIR || 'eds-components'),
     edsManifestPath: path.resolve(cwd, process.env.EDS_MANIFEST_PATH || 'eds-manifest.json'),
+    edsStorybookBase: process.env.EDS_STORYBOOK_BASE || 'https://affinitycmpd103.gilead.com',
     edsNativeCssPath: process.env.EDS_NATIVE_CSS_PATH || '',
     bootstrapCssUrl: process.env.BOOTSTRAP_CSS_URL || 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css',
     bootstrapJsUrl: process.env.BOOTSTRAP_JS_URL || 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
@@ -82,9 +81,6 @@ export function validateConfig(cfg) {
     if (cfg.figmaSource === 'auto' && !cfg.figmaToken) {
       errors.push('FIGMA_TOKEN is missing: the REST fallback (and asset export) needs it.');
     }
-  }
-  if (!fs.existsSync(cfg.edsComponentsDir)) {
-    errors.push(`EDS components folder not found: ${cfg.edsComponentsDir}`);
   }
   if (cfg.maxOutputTokens < 1) errors.push(`LLM_MAX_TOKENS must be >= 1 (got ${cfg.maxOutputTokens}).`);
   if (!(cfg.matchThreshold > 0 && cfg.matchThreshold <= 100)) errors.push(`MATCH_THRESHOLD must be in (0, 100] (got ${cfg.matchThreshold}).`);

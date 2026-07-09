@@ -27,7 +27,8 @@ import { FigmaMcp } from './figma/mcpClient.js';
 import { normalizeDesign, compactSpec } from './figma/normalize.js';
 import { downloadAssets, downloadReferenceScreenshot } from './assets/downloader.js';
 import { buildDesignTokens } from './tokens/designTokens.js';
-import { loadEdsManifest, scanEdsComponents } from './eds/manifest.js';
+import { loadEdsManifest } from './eds/manifest.js';
+import { scanStorybookComponents, hydrateStorybookSnippets } from './eds/storybook.js';
 import { matchSections, shortlistedComponents } from './eds/matcher.js';
 import { makeClient, resolveModel } from './llm/anthropicClient.js';
 import { generate, refine } from './llm/generator.js';
@@ -44,8 +45,8 @@ async function main() {
   }
 
   if (cfg.manifestOnly) {
-    const components = scanEdsComponents(cfg.edsComponentsDir);
-    writeFileEnsured(cfg.edsManifestPath, JSON.stringify({ generatedAt: new Date().toISOString(), source: 'programmatic scan', componentCount: components.length, components }, null, 2));
+    const components = await scanStorybookComponents({ base: cfg.edsStorybookBase });
+    writeFileEnsured(cfg.edsManifestPath, JSON.stringify({ generatedAt: new Date().toISOString(), source: 'EDS Storybook scan', componentCount: components.length, components }, null, 2));
     log.ok(`eds-manifest.json rebuilt with ${components.length} components.`);
     return;
   }
@@ -131,7 +132,15 @@ async function main() {
 
   // ── 5. EDS component matching ────────────────────────────────────────────
   log.step('Matching design sections against the 37 EDS components…');
-  const components = loadEdsManifest(cfg);
+  const components = await loadEdsManifest(cfg);
+  // Refresh the canonical DOM snippets from the live EDS Storybook so the
+  // agents ground on the current component markup (replaces the local folder).
+  try {
+    await hydrateStorybookSnippets(components, { base: cfg.edsStorybookBase });
+  } catch (err) {
+    warnings.push(`Storybook snippet refresh failed (${err.message}); using curated snippets from eds-manifest.json.`);
+    log.warn(warnings.at(-1));
+  }
   const matches = matchSections(design.root, components);
   const shortlist = shortlistedComponents(matches, components);
   matches.forEach((m) => {

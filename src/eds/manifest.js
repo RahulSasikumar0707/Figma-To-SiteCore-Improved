@@ -1,21 +1,21 @@
-import fs from 'node:fs';
 import path from 'node:path';
 import { readJsonIfExists } from '../utils/fsx.js';
 import { log } from '../utils/log.js';
+import { scanStorybookComponents } from './storybook.js';
 
 /**
  * Loads the EDS component manifest.
  * Preferred source: eds-manifest.json (deep, pre-analyzed metadata for all 37
- * components). Fallback: a programmatic scan of the eds-components folder that
- * extracts eds-* classes, documented modifiers and a trimmed snippet per
- * component, so the converter still works without the curated file.
+ * components). Fallback: a live scan of the EDS redesign Storybook that
+ * extracts eds-* classes and a trimmed snippet per component, so the converter
+ * still works without the curated file.
  */
-export function loadEdsManifest({ edsManifestPath, edsComponentsDir }) {
+export async function loadEdsManifest({ edsManifestPath }) {
   let curated = null;
   try {
     curated = readJsonIfExists(edsManifestPath);
   } catch (err) {
-    log.warn(`eds-manifest.json exists at ${edsManifestPath} but could not be parsed (${err.message}) — falling back to a programmatic scan.`);
+    log.warn(`eds-manifest.json exists at ${edsManifestPath} but could not be parsed (${err.message}) — falling back to a Storybook scan.`);
   }
   if (curated?.components?.length) {
     // Normalize entries at the boundary so downstream code can trust name/folder.
@@ -29,63 +29,8 @@ export function loadEdsManifest({ edsManifestPath, edsComponentsDir }) {
       return components;
     }
   }
-  log.warn('Curated eds-manifest.json not usable — building manifest by scanning the eds-components folder.');
-  return scanEdsComponents(edsComponentsDir);
-}
-
-export function scanEdsComponents(dir) {
-  const components = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    const folder = path.join(dir, entry.name);
-    const htmlFiles = fs.readdirSync(folder).filter((f) => f.endsWith('.html'));
-    if (!htmlFiles.length) continue;
-
-    const edsClasses = new Set();
-    const bootstrapFeatures = new Set();
-    let snippet = '';
-
-    for (const file of htmlFiles) {
-      const html = fs.readFileSync(path.join(folder, file), 'utf8');
-      for (const m of html.matchAll(/\beds-[a-z0-9-]+\b/g)) {
-        if (!m[0].startsWith('eds-btn') || m[0] === 'eds-btn') edsClasses.add(m[0]);
-      }
-      for (const m of html.matchAll(/data-bs-(toggle|ride|target)="([a-z-]+)"?/g)) {
-        bootstrapFeatures.add(m[2] || m[1]);
-      }
-      if (!snippet) snippet = extractSnippet(html);
-    }
-    edsClasses.delete('eds-wrapper');
-    edsClasses.delete('eds-header');
-    edsClasses.delete('eds-main');
-    edsClasses.delete('eds-footer');
-
-    components.push({
-      name: entry.name,
-      folder: entry.name,
-      edsClasses: [...edsClasses],
-      bootstrapFeatures: [...bootstrapFeatures],
-      description: `EDS ${entry.name.replace(/-/g, ' ')} component`,
-      whenToUse: '',
-      keywords: entry.name.split('-'),
-      structureOutline: '',
-      snippet: snippet.slice(0, 4000),
-    });
-  }
-  log.info(`Scanned ${components.length} EDS component folders.`);
-  return components;
-}
-
-/** Pulls the first real component block (class="component eds-...") out of a demo page. */
-function extractSnippet(html) {
-  const idx = html.search(/<\w+[^>]*class="[^"]*\bcomponent eds-[a-z0-9-]+/);
-  if (idx === -1) return '';
-  // crude but effective: take a few hundred lines after the component root
-  return html
-    .slice(idx, idx + 6000)
-    .split('\n')
-    .slice(0, 90)
-    .join('\n');
+  log.warn('Curated eds-manifest.json not usable — building manifest from the EDS Storybook.');
+  return scanStorybookComponents();
 }
 
 /** Compact one-line-per-component catalog for LLM prompts. */

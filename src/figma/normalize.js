@@ -54,6 +54,7 @@ const round = (v) => (typeof v === 'number' ? Math.round(v * 10) / 10 : v);
 export function normalizeDesign(rootNode) {
   const assets = [];
   const assetByNode = new Map();
+  const assetBySig = new Map(); // "kind|name|WxH" (or componentId) -> asset
   const palette = new Map(); // hex -> count
   const textStyles = new Map(); // signature -> {style, count, sample}
   const spacing = new Map(); // px -> count
@@ -66,6 +67,21 @@ export function normalizeDesign(rootNode) {
     const existing = assetByNode.get(node.id);
     if (existing) return existing.id;
     const b = box(node) || { w: 0, h: 0 };
+    // The same icon placed N times in the design is N distinct nodes whose
+    // SVG renders differ by a few bytes (fractional coords), so byte-hash
+    // dedup can't catch them. Dedup here by identity instead: the component
+    // they're an instance of, or name + rendered size for plain vectors.
+    let sig = null;
+    if (exportAs === 'svg') {
+      sig = node.componentId
+        ? `cmp|${node.componentId}`
+        : `${kind}|${(node.name || '').toLowerCase()}|${round(b.w)}x${round(b.h)}`;
+      const dupe = assetBySig.get(sig);
+      if (dupe) {
+        assetByNode.set(node.id, dupe);
+        return dupe.id;
+      }
+    }
     const asset = {
       id: `a${++assetSeq}`,
       nodeId: node.id,
@@ -78,6 +94,7 @@ export function normalizeDesign(rootNode) {
     };
     assets.push(asset);
     assetByNode.set(node.id, asset);
+    if (sig) assetBySig.set(sig, asset);
     return asset.id;
   }
 
