@@ -72,6 +72,39 @@ export async function complete({ client, model, system, messages, maxTokens = 80
   throw lastErr;
 }
 
+/**
+ * Like `complete`, but if the model stops mid-file on max_tokens, resends the
+ * conversation with the partial output as an assistant turn and asks it to
+ * pick up exactly where it left off, concatenating the pieces into one
+ * response. Without this, a single long file (e.g. a large styles.css) can
+ * consume the whole token budget and get dropped by the caller as incomplete.
+ */
+export async function completeWithContinuation({ client, model, system, messages, maxTokens, maxContinuations = 3 }) {
+  let convo = messages;
+  let text = '';
+  let stopReason;
+  const usage = { input_tokens: 0, output_tokens: 0 };
+
+  for (let attempt = 0; attempt <= maxContinuations; attempt++) {
+    const res = await complete({ client, model, system, messages: convo, maxTokens });
+    text += res.text;
+    usage.input_tokens += res.usage?.input_tokens || 0;
+    usage.output_tokens += res.usage?.output_tokens || 0;
+    stopReason = res.stopReason;
+    if (stopReason !== 'max_tokens' || attempt === maxContinuations) break;
+    log.warn(`Response truncated at max_tokens — requesting continuation (${attempt + 1}/${maxContinuations})…`);
+    convo = [
+      ...convo,
+      { role: 'assistant', content: res.text },
+      {
+        role: 'user',
+        content: 'Continue the response exactly where it left off. Do not repeat any text already written, do not restate the ===FILE: ...=== header of the file currently in progress, and do not add commentary — resume mid-file if the cutoff was mid-file.',
+      },
+    ];
+  }
+  return { text, usage, stopReason };
+}
+
 export function imageBlock(buffer, mediaType = 'image/png') {
   return {
     type: 'image',

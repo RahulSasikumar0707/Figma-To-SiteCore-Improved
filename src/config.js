@@ -34,6 +34,7 @@ export function loadConfig(argv = []) {
     anthropicKeyReviewer: process.env.ANTHROPIC_API_KEY_2 || process.env.ANTHROPIC_API_KEY_1 || process.env.ANTHROPIC_API_KEY || '',
     model: process.env.ANTHROPIC_MODEL || 'claude-fable-5',
     maxOutputTokens: num(process.env.LLM_MAX_TOKENS, 32000),
+    maxContinuations: num(process.env.LLM_MAX_CONTINUATIONS, 3),
 
     // --- Figma sources ---
     figmaToken: process.env.FIGMA_TOKEN || '',
@@ -83,6 +84,7 @@ export function validateConfig(cfg) {
     }
   }
   if (cfg.maxOutputTokens < 1) errors.push(`LLM_MAX_TOKENS must be >= 1 (got ${cfg.maxOutputTokens}).`);
+  if (cfg.maxContinuations < 0) errors.push(`LLM_MAX_CONTINUATIONS must be >= 0 (got ${cfg.maxContinuations}).`);
   if (!(cfg.matchThreshold > 0 && cfg.matchThreshold <= 100)) errors.push(`MATCH_THRESHOLD must be in (0, 100] (got ${cfg.matchThreshold}).`);
   if (cfg.maxReviewIterations < 1) errors.push(`MAX_REVIEW_ITERATIONS must be >= 1 (got ${cfg.maxReviewIterations}); use --skip-review to disable the review loop.`);
   return errors;

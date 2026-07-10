@@ -1,4 +1,4 @@
-import { complete, imageBlock } from './anthropicClient.js';
+import { completeWithContinuation, imageBlock } from './anthropicClient.js';
 import { manifestCatalog } from '../eds/manifest.js';
 import { log } from '../utils/log.js';
 
@@ -104,12 +104,13 @@ export function buildGeneratorContext(ctx) {
   return parts.join('\n\n');
 }
 
-export async function generate({ client, model, maxTokens, ctx }) {
+export async function generate({ client, model, maxTokens, maxContinuations, ctx }) {
   log.step('Generator (API key 1): producing EDS + Bootstrap code from the design spec…');
-  const { text, usage, stopReason } = await complete({
+  const { text, usage, stopReason } = await completeWithContinuation({
     client,
     model,
     maxTokens,
+    maxContinuations,
     system: systemPrompt(),
     messages: [{ role: 'user', content: buildGeneratorContext(ctx) }],
   });
@@ -119,7 +120,7 @@ export async function generate({ client, model, maxTokens, ctx }) {
   return files;
 }
 
-export async function refine({ client, model, maxTokens, ctx, files, review, pixelMismatchPct, figmaImage, renderImage, diffImage }) {
+export async function refine({ client, model, maxTokens, maxContinuations, ctx, files, review, pixelMismatchPct, figmaImage, renderImage, diffImage }) {
   log.step(`Generator (API key 1): applying ${review.issues?.length ?? 0} review fixes…`);
   const fileDump = Object.entries(files)
     .map(([name, content]) => `===FILE: ${name}===\n${content}`)
@@ -150,10 +151,11 @@ export async function refine({ client, model, maxTokens, ctx, files, review, pix
   }
   content.push({ type: 'text', text: prompt });
 
-  const { text, usage, stopReason } = await complete({
+  const { text, usage, stopReason } = await completeWithContinuation({
     client,
     model,
     maxTokens,
+    maxContinuations,
     system: systemPrompt(),
     messages: [{ role: 'user', content }],
   });

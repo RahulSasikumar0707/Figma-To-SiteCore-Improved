@@ -169,7 +169,7 @@ async function main() {
     edsNativeAvailable: !!edsNativePath,
   };
 
-  let files = await generate({ client: genClient, model: cfg.model, maxTokens: cfg.maxOutputTokens, ctx });
+  let files = await generate({ client: genClient, model: cfg.model, maxTokens: cfg.maxOutputTokens, maxContinuations: cfg.maxContinuations, ctx });
   writeGeneratedFiles(outputDir, files);
 
   // ── 7. Review loop (two-agent exact-match convergence) ───────────────────
@@ -221,6 +221,7 @@ async function main() {
         client: genClient,
         model: cfg.model,
         maxTokens: cfg.maxOutputTokens,
+        maxContinuations: cfg.maxContinuations,
         ctx,
         files,
         review: lastReview,
