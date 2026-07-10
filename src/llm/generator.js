@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { complete, imageBlock } from './anthropicClient.js';
 import { manifestCatalog } from '../eds/manifest.js';
 import { log } from '../utils/log.js';
@@ -8,11 +10,15 @@ import { log } from '../utils/log.js';
  * component-map.json documenting which EDS component each design section maps to.
  */
 
-const FILE_DELIM_RE = /^===FILE:\s*(.+?)\s*===\s*$/gm;
+// Tolerant of common LLM formatting drift: leading indentation, extra "=",
+// spaces around FILE:, case variations and CRLF line endings — but still
+// line-anchored ([^\S\n] = whitespace except newline, so \r is covered).
+const FILE_DELIM_RE = /^[^\S\n]*={3,}[^\S\n]*FILE:[^\S\n]*(.+?)[^\S\n]*={3,}[^\S\n]*$/gim;
+const END_DELIM_RE = /^[^\S\n]*={3,}[^\S\n]*END[^\S\n]*={3,}[^\S\n]*$/im;
 
 export function parseGeneratedFiles(text, { truncated = false } = {}) {
   // Everything after ===END=== is trailing prose, not file content.
-  const endMatch = text.match(/^===END===\s*$/m);
+  const endMatch = text.match(END_DELIM_RE);
   const sawEnd = !!endMatch;
   if (sawEnd) text = text.slice(0, endMatch.index);
 
@@ -104,18 +110,54 @@ export function buildGeneratorContext(ctx) {
   return parts.join('\n\n');
 }
 
+const EXPECTED_FILES = ['index.html', 'css/styles.css', 'js/script.js', 'component-map.json'];
+
 export async function generate({ client, model, maxTokens, ctx }) {
   log.step('Generator (API key 1): producing EDS + Bootstrap code from the design spec…');
-  const { text, usage, stopReason } = await complete({
+  const userMsg = { role: 'user', content: buildGeneratorContext(ctx) };
+  let { text, usage, stopReason } = await complete({
     client,
     model,
     maxTokens,
     system: systemPrompt(),
-    messages: [{ role: 'user', content: buildGeneratorContext(ctx) }],
+    messages: [userMsg],
   });
   log.info(`Generator tokens — in: ${usage?.input_tokens}, out: ${usage?.output_tokens}`);
-  const files = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
-  assertFiles(files);
+  let files = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
+
+  // On very large designs the model sometimes ends its turn after only the
+  // first file(s) (typically a huge index.html), deferring the rest. Instead
+  // of failing, continue the conversation and ask for the missing files.
+  let allText = text;
+  for (let round = 1; round <= 3; round++) {
+    const missing = EXPECTED_FILES.filter((f) => !files[f]);
+    if (!missing.length) break;
+    log.warn(`Generator produced ${Object.keys(files).join(', ') || 'no files'} but not ${missing.join(', ')} — requesting the missing file(s) (${round}/3)…`);
+    const history = text.trim()
+      ? [userMsg, { role: 'assistant', content: text.trim() }]
+      : [userMsg];
+    const followUp = await complete({
+      client,
+      model,
+      maxTokens,
+      system: systemPrompt(),
+      messages: [
+        ...history,
+        {
+          role: 'user',
+          content: `Continue. Output ONLY the still-missing file(s) — ${missing.join(', ')} — each complete, in the exact ===FILE: name=== format, finishing with ===END===. Do not re-emit files you already delivered. No prose.`,
+        },
+      ],
+    });
+    log.info(`Generator continuation tokens — in: ${followUp.usage?.input_tokens}, out: ${followUp.usage?.output_tokens}`);
+    text = followUp.text;
+    stopReason = followUp.stopReason;
+    allText += `\n\n----- CONTINUATION ${round} -----\n\n${followUp.text}`;
+    const more = parseGeneratedFiles(followUp.text, { truncated: followUp.stopReason === 'max_tokens' });
+    files = { ...files, ...more };
+  }
+
+  assertFiles(files, { text: allText, stopReason, label: 'generator' });
   return files;
 }
 
@@ -163,14 +205,26 @@ export async function refine({ client, model, maxTokens, ctx, files, review, pix
   const updated = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
   // keep any file the model failed to re-emit
   const merged = { ...files, ...updated };
-  assertFiles(merged);
+  assertFiles(merged, { text, stopReason, label: 'refine' });
   return merged;
 }
 
-function assertFiles(files) {
+function assertFiles(files, { text, stopReason, label = 'generator' } = {}) {
   const required = ['index.html', 'css/styles.css'];
   const missing = required.filter((f) => !files[f]);
   if (missing.length) {
-    throw new Error(`Generator response missing required file(s): ${missing.join(', ')} — got: ${Object.keys(files).join(', ') || 'none'}`);
+    let dumpNote = '';
+    if (text != null) {
+      // Dump the raw model output so the actual failure (refusal, prose,
+      // malformed delimiters, truncation) can be diagnosed instead of guessed.
+      const dumpPath = path.resolve(process.cwd(), `llm-raw-${label}-${Date.now()}.txt`);
+      try {
+        fs.writeFileSync(dumpPath, `stop_reason: ${stopReason}\nchars: ${text.length}\n\n${text}`);
+        dumpNote = ` Raw response dumped to ${dumpPath}`;
+      } catch { /* dump is best-effort */ }
+      const preview = text.slice(0, 300).replace(/\s+/g, ' ').trim();
+      log.warn(`LLM response (stop_reason=${stopReason}, ${text.length} chars) had no parseable files. Starts with: "${preview}"`);
+    }
+    throw new Error(`Generator response missing required file(s): ${missing.join(', ')} — got: ${Object.keys(files).join(', ') || 'none'}.${dumpNote}`);
   }
 }

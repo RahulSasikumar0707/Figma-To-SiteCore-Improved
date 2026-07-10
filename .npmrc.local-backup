@@ -1,0 +1,5 @@
+; cmd.exe cannot run with a UNC working directory (this project lives on
+; \\z1xa7prdhomes...) — PowerShell can, so run npm lifecycle/run scripts
+; through it. Makes `npm start` / `npm install` work from both J: and the
+; UNC path.
+script-shell=powershell.exe
