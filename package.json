@@ -7,7 +7,13 @@
   "scripts": {
     "start": "node src/index.js",
     "convert": "node src/index.js",
-    "manifest": "node src/index.js --manifest-only"
+    "manifest": "node src/index.js --manifest-only",
+    "sitecore-mcp": "node src/sitecore-mcp.js",
+    "sitecore-mcp:http": "node src/sitecore-mcp.js --http",
+    "generate-structure": "node tools/sitecore-import/generate-structure.js",
+    "validate-structure": "node tools/sitecore-import/validate-structure.js",
+    "import-sitecore": "node tools/sitecore-import/import-to-sitecore.js",
+    "import-sitecore:dry-run": "node tools/sitecore-import/import-to-sitecore.js --dry-run"
   },
   "engines": {
     "node": ">=18"
@@ -18,6 +24,7 @@
     "dotenv": "^16.4.5",
     "pixelmatch": "^6.0.0",
     "pngjs": "^7.0.0",
-    "puppeteer": "^25.3.0"
+    "puppeteer": "^25.3.0",
+    "zod": "^3.25.76"
   }
 }

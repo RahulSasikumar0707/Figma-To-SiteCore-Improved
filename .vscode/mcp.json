@@ -1,0 +1,12 @@
+{
+	"servers": {
+		"sitecore-local": {
+			"type": "stdio",
+			"command": "node",
+			"args": [
+				"src/sitecore-mcp.js"
+			]
+		}
+	},
+	"inputs": []
+}
