@@ -1,0 +1,106 @@
+{
+  "url": "https://dxcmpt6.gilead.com/about-vanddmyo",
+  "generatedPath": "\\\\z1xa7prdhomes.file.core.windows.net\\prdhomes\\Homes\\ugg\\Documents\\Figma-To-SiteCore-Improved\\Output_2\\index.html",
+  "model": "claude-opus-4-8",
+  "timestamp": "2026-07-14T09:46:45.701Z",
+  "summary": "The generated page reproduces the main content structure and copy of the About VANDDMYO page fairly well — hero, intro split, three how-it-works cards, eligibility flip cards, ask-about CTA, dual CTA panels, ISI, and footer are all present in the correct order with mostly accurate text. However several notable gaps exist: the BCMA accordion body content is entirely empty (missing two list items), the eligibility flip-card BACK content (all four cards' details) is missing, the ISI tray full detail/offcanvas content is reduced to a truncated placeholder, header nav lacks the Prescribing/Important Facts/HCP link destinations and mobile menu, and there is an 'FPO' placeholder in the ISI. Page title and meta/SEO tags are also simplified.",
+  "matchPercent": 74,
+  "differences": [
+    {
+      "severity": "critical",
+      "area": "BCMA accordion",
+      "type": "missing",
+      "live": "<ul><li>The special \"grabbers\" on [VANDDMYO] are <strong>designed to be small and stable</strong>...</li><li>The <strong>trained cells are engineered for a “quick release.”</strong>...</li></ul>",
+      "generated": "<div class=\"eds-accordion-body\"></div> (empty)",
+      "recommendation": "Populate the accordion body with the two bullet points describing the small/stable grabbers and quick-release engineering."
+    },
+    {
+      "severity": "critical",
+      "area": "Eligibility flip cards (back content)",
+      "type": "missing",
+      "live": "Each flip card has back content, e.g. 'Living with multiple myeloma and having had at least 3 kinds of treatment not work...', 'Tried 3 or more different types of treatments... Immunomodulators / Proteasome inhibitors / Anti-CD38 antibodies', 'Have multiple myeloma that is standard or high risk', 'Age 18 years or older', plus a 'Reset' CTA.",
+      "generated": "Flip cards only render the front (title + 'Find out more'); no back-face content, list items, or Reset CTA.",
+      "recommendation": "Add the card-back content and Reset controls for all four eligibility flip cards to preserve the interactive detail."
+    },
+    {
+      "severity": "major",
+      "area": "ISI tray (offcanvas detail)",
+      "type": "truncated",
+      "live": "Full ISI offcanvas with tabs (Approved Uses / Safety Information), detailed 'How will I receive', 'What should I avoid', side effects lists, CRS paragraph, FDA MedWatch link, and Important Facts link.",
+      "generated": "Only a short two-column summary and a 'Read' button; no offcanvas detail content or tabs.",
+      "recommendation": "Include the full ISI offcanvas markup with detailed safety information, tabs, and footer navigation as on the live page."
+    },
+    {
+      "severity": "major",
+      "area": "ISI section",
+      "type": "placeholder",
+      "live": "n/a",
+      "generated": "<span class=\"isi-fpo\" aria-hidden=\"true\">FPO</span>",
+      "recommendation": "Remove the 'FPO' placeholder from the ISI floating tray."
+    },
+    {
+      "severity": "major",
+      "area": "Header secondary navigation links",
+      "type": "link",
+      "live": "Prescribing Information -> https://www.gilead.com/, Important Facts -> /edsredesign, Visit HCP Site -> https://www.gilead.com/ (with external icon and target=_blank).",
+      "generated": "All three links point to '#' with a generic icon-button.svg.",
+      "recommendation": "Restore the correct destinations, external-link behavior, and icons for the secondary nav links."
+    },
+    {
+      "severity": "minor",
+      "area": "Header primary navigation links",
+      "type": "link",
+      "live": "Nav items link to /about-vanddmyo, /results-and-side-effects, /starting-vanddmyo, /voices-of-vanddmyo, /support-and-resources, /find-a-treatment-center.",
+      "generated": "All nav links point to '#'.",
+      "recommendation": "Set the correct href targets for each main navigation item."
+    },
+    {
+      "severity": "minor",
+      "area": "Sign up / CTAs destinations",
+      "type": "link",
+      "live": "Sign up -> /sign-up; Doctor discussion guide -> /support-and-resources#downloadable-resources-section; Stay informed -> /sign-up; See the lasting results -> /results-and-side-effects.",
+      "generated": "All these CTAs point to '#'.",
+      "recommendation": "Point CTAs at their live destinations."
+    },
+    {
+      "severity": "minor",
+      "area": "Document head / SEO",
+      "type": "mismatch",
+      "live": "<title>What is VANDDMYO®? | A CAR T-Cell Therapy for Myeloma</title> plus canonical, og:, twitter:, and meta description tags.",
+      "generated": "<title>About [VANDDMYO]</title> with no canonical/og/twitter/meta description tags.",
+      "recommendation": "Add the proper page title and SEO/social meta tags matching the live page."
+    },
+    {
+      "severity": "minor",
+      "area": "Header logo",
+      "type": "image",
+      "live": "Single SVG logo image (logos.svg) with alt 'VANDDMYO (vandecabtagene autoleucel) logo'.",
+      "generated": "Logo reconstructed from ~30 absolutely positioned vector SVG fragments.",
+      "recommendation": "Replace the fragmented SVG assembly with the single logos.svg image for maintainability and correct alt text."
+    },
+    {
+      "severity": "minor",
+      "area": "Header mobile menu / hamburger nav items",
+      "type": "missing",
+      "live": "Mobile hamburger menu includes duplicate Prescribing Information, Important Facts, and Visit HCP Site links.",
+      "generated": "Mobile toggle exists but the mobile-only external link list is absent.",
+      "recommendation": "Add the mobile-hm-links list for parity on small screens."
+    },
+    {
+      "severity": "minor",
+      "area": "Footer social icons order",
+      "type": "order",
+      "live": "Order: Instagram, Facebook, YouTube.",
+      "generated": "Order: Facebook, Instagram, YouTube.",
+      "recommendation": "Reorder footer social icons to Instagram, Facebook, YouTube to match live."
+    },
+    {
+      "severity": "minor",
+      "area": "How it works card 1 body",
+      "type": "mismatch",
+      "live": "'Your newly trained T cells have special \"grabbers\"...' with 'newly trained T cells' emphasized as part of a larger bold span.",
+      "generated": "Emphasis boundaries differ slightly (e.g., <strong>newly trained T cells</strong> separated), otherwise text matches.",
+      "recommendation": "Minor; align bold emphasis spans with live copy if exact styling matters."
+    }
+  ]
+}
