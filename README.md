@@ -109,6 +109,42 @@ npm run sitecore-mcp            # stdio mode (for Claude Desktop / VS Code)
 npm run sitecore-mcp:http       # HTTP mode on port 3847 (for testing)
 ```
 
+### Figma ↔ Sitecore Comparison UI (React)
+
+Compares a Figma design against a **live Sitecore page**, lists missing / extra /
+mismatched content, and patches the differences you select back into Sitecore via the
+ItemService PATCH API — without touching anything else on the page.
+
+```bash
+npm run ui:install              # one-time: install the React client deps
+npm run ui:build                # build the client (web/client/dist)
+npm run ui                      # serve UI + API on http://localhost:3900
+
+# development (hot reload): run both, browse http://localhost:5173
+npm run ui                      # API
+npm run ui:client               # Vite dev server (proxies /api → :3900)
+```
+
+**Workflow**
+
+1. Paste a Figma frame link (`…?node-id=…`) and a Sitecore page URL
+   (e.g. `https://<cm-host>/sitecore/content/EDS/…/Home/LivdelziApril7-1`).
+2. The server pulls the Figma node tree + screenshot (REST API), reads the Sitecore
+   item + descendants (ItemService), and screenshots the rendered page (headless Chrome
+   with the ITEM_SERVICE_* basic-auth credentials).
+3. Claude compares both screenshots and both content inventories and returns a structured
+   diff: `missing` / `extra` / `mismatch` / `visual`, each mapped (when possible) to a
+   concrete Sitecore item path + field + suggested value.
+4. Tick the differences to fix (patchable ones are pre-selected), optionally **Preview
+   (dry run)**, then **Patch** — one `PATCH /sitecore/api/ssc/item/<path>` per item with
+   only the selected fields. Rich-text fields keep their existing HTML structure (the new
+   copy is merged into the current markup).
+5. Optionally trigger **Publish page to web** for the patched page item.
+
+Uses the same `.env` as the rest of the project: `ANTHROPIC_API_KEY_1`, `FIGMA_TOKEN`,
+`ITEM_SERVICE_*`. Extra options: `UI_PORT` (default `3900`) and
+`SITECORE_INSECURE_TLS=true` for CM hosts with self-signed certificates.
+
 Each run creates a fresh folder:
 
 ```

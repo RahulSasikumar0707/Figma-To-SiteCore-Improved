@@ -3,3 +3,4 @@ node_modules/
 Output_*/
 *.log
 .DS_Store
+web/client/dist/
