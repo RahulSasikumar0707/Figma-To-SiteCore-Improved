@@ -120,14 +120,28 @@ async function main() {
   const { css: tokensCss } = buildDesignTokens(design.tokens, figmaVariables);
   writeFileEnsured(path.join(outputDir, 'css', 'tokens.css'), tokensCss);
 
-  // eds-native.css: copy it next to tokens if we can find it
-  const edsNativePath = findEdsNativeCss(cfg);
-  if (edsNativePath) {
-    fs.copyFileSync(edsNativePath, path.join(outputDir, 'css', 'eds-native.css'));
-    log.ok(`eds-native.css copied from ${edsNativePath}`);
-  } else {
-    warnings.push('eds-native.css was not found on this machine (set EDS_NATIVE_CSS_PATH). Generated styles.css carries the full styling instead.');
-    log.warn(warnings.at(-1));
+  // eds-native.css: fetch from URL or copy from local path
+  const edsNativeUrl = 'https://affinitycmpd103.gilead.com/edsredesign/-/media/themes/gilead-eds-library/eds-redesign/eds-redesign/styles/eds-native-styles.css';
+  try {
+    log.info('Fetching eds-native.css from URL...');
+    const response = await fetch(edsNativeUrl);
+    if (response.ok) {
+      const cssContent = await response.text();
+      writeFileEnsured(path.join(outputDir, 'css', 'eds-native.css'), cssContent);
+      log.ok(`eds-native.css fetched from ${edsNativeUrl}`);
+    } else {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+  } catch (err) {
+    log.warn(`Failed to fetch eds-native.css from URL (${err.message}). Trying local path...`);
+    const edsNativePath = findEdsNativeCss(cfg);
+    if (edsNativePath) {
+      fs.copyFileSync(edsNativePath, path.join(outputDir, 'css', 'eds-native.css'));
+      log.ok(`eds-native.css copied from ${edsNativePath}`);
+    } else {
+      warnings.push('eds-native.css was not found (URL fetch failed, no local file found). Generated styles.css carries the full styling instead.');
+      log.warn(warnings.at(-1));
+    }
   }
 
   // ── 5. EDS component matching ────────────────────────────────────────────
