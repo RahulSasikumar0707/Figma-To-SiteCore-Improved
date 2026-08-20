@@ -122,6 +122,7 @@ async function main() {
 
   // eds-native.css: fetch from URL or copy from local path
   const edsNativeUrl = 'https://affinitycmpd103.gilead.com/edsredesign/-/media/themes/gilead-eds-library/eds-redesign/eds-redesign/styles/eds-native-styles.css';
+  let edsNativePath = null;
   try {
     log.info('Fetching eds-native.css from URL...');
     const response = await fetch(edsNativeUrl);
@@ -134,7 +135,7 @@ async function main() {
     }
   } catch (err) {
     log.warn(`Failed to fetch eds-native.css from URL (${err.message}). Trying local path...`);
-    const edsNativePath = findEdsNativeCss(cfg);
+    edsNativePath = findEdsNativeCss(cfg);
     if (edsNativePath) {
       fs.copyFileSync(edsNativePath, path.join(outputDir, 'css', 'eds-native.css'));
       log.ok(`eds-native.css copied from ${edsNativePath}`);
