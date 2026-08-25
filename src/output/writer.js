@@ -84,6 +84,25 @@ export function writeReport(outputDir, report) {
       md.push(`- **[${i.severity}] ${i.area}:** ${i.description}`);
     });
   }
+  if (report.tokenUsage) {
+    const tu = report.tokenUsage;
+    const sumArr = (arr) => arr.reduce((acc, u) => ({ input_tokens: acc.input_tokens + u.input_tokens, output_tokens: acc.output_tokens + u.output_tokens }), { input_tokens: 0, output_tokens: 0 });
+    const refineTotal = sumArr(tu.refine ?? []);
+    const reviewTotal = sumArr(tu.review ?? []);
+    const grandIn = (tu.generate?.input_tokens ?? 0) + refineTotal.input_tokens + reviewTotal.input_tokens;
+    const grandOut = (tu.generate?.output_tokens ?? 0) + refineTotal.output_tokens + reviewTotal.output_tokens;
+    md.push('', `## Token usage`);
+    md.push(`| Phase | Input tokens | Output tokens | Total |`);
+    md.push(`|-------|-------------|--------------|-------|`);
+    md.push(`| Generate | ${tu.generate?.input_tokens ?? 0} | ${tu.generate?.output_tokens ?? 0} | ${(tu.generate?.input_tokens ?? 0) + (tu.generate?.output_tokens ?? 0)} |`);
+    (tu.refine ?? []).forEach((u, i) => {
+      md.push(`| Refine #${i + 1} | ${u.input_tokens} | ${u.output_tokens} | ${u.input_tokens + u.output_tokens} |`);
+    });
+    (tu.review ?? []).forEach((u, i) => {
+      md.push(`| Review #${i + 1} | ${u.input_tokens} | ${u.output_tokens} | ${u.input_tokens + u.output_tokens} |`);
+    });
+    md.push(`| **Total** | **${grandIn}** | **${grandOut}** | **${grandIn + grandOut}** |`);
+  }
   writeFileEnsured(path.join(outputDir, 'REPORT.md'), md.join('\n') + '\n');
   log.ok(`Report written: ${path.join(outputDir, 'REPORT.md')}`);
 }

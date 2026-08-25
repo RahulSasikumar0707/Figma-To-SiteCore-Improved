@@ -184,8 +184,14 @@ async function main() {
     edsNativeAvailable: !!edsNativePath,
   };
 
-  let files = await generate({ client: genClient, model: cfg.model, maxTokens: cfg.maxOutputTokens, maxContinuations: cfg.maxContinuations, ctx });
+  const { files: genFiles, usage: genUsage } = await generate({ client: genClient, model: cfg.model, maxTokens: cfg.maxOutputTokens, maxContinuations: cfg.maxContinuations, ctx });
+  let files = genFiles;
   writeGeneratedFiles(outputDir, files);
+  const tokenUsage = {
+    generate: { input_tokens: genUsage?.input_tokens ?? 0, output_tokens: genUsage?.output_tokens ?? 0 },
+    refine: [],
+    review: [],
+  };
 
   // ── 7. Review loop (two-agent exact-match convergence) ───────────────────
   const iterations = [];
@@ -208,7 +214,7 @@ async function main() {
       const renderImage = render?.jpg ? { buffer: render.jpg, mediaType: 'image/jpeg' } : null;
       const diffImage = diff?.diffPng ? { buffer: diff.diffPng, mediaType: 'image/png' } : null;
 
-      lastReview = await review({
+      const reviewResult = await review({
         client: revClient,
         model: cfg.model,
         ctx,
@@ -218,6 +224,9 @@ async function main() {
         diffImage,
         pixelMismatchPct: lastPixel,
       });
+      const { usage: revUsage, ...reviewVerdict } = reviewResult;
+      lastReview = reviewVerdict;
+      tokenUsage.review.push({ input_tokens: revUsage?.input_tokens ?? 0, output_tokens: revUsage?.output_tokens ?? 0 });
       const sev = (s) => lastReview.issues.filter((i) => i.severity === s).length;
       iterations.push({ score: lastReview.score, issueCount: lastReview.issues.length, critical: sev('critical'), major: sev('major'), minor: sev('minor') });
       finalScore = lastReview.score;
@@ -232,7 +241,7 @@ async function main() {
         log.warn(`Max review iterations (${cfg.maxReviewIterations}) reached — ${lastReview.issues.length} issue(s) remain at score ${lastReview.score}. Raise MAX_REVIEW_ITERATIONS to keep going.`);
         break;
       }
-      files = await refine({
+      const { files: refinedFiles, usage: refineUsage } = await refine({
         client: genClient,
         model: cfg.model,
         maxTokens: cfg.maxOutputTokens,
@@ -245,6 +254,8 @@ async function main() {
         renderImage,
         diffImage,
       });
+      files = refinedFiles;
+      tokenUsage.refine.push({ input_tokens: refineUsage?.input_tokens ?? 0, output_tokens: refineUsage?.output_tokens ?? 0 });
       writeGeneratedFiles(outputDir, files);
     }
   }
@@ -269,6 +280,7 @@ async function main() {
     assets: assetManifest,
     warnings,
     remainingIssues: lastReview?.issues || [],
+    tokenUsage,
   });
 
   await mcp?.close();

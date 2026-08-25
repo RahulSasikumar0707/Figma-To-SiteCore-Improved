@@ -118,7 +118,7 @@ export async function generate({ client, model, maxTokens, maxContinuations, ctx
   log.info(`Generator tokens — in: ${usage?.input_tokens}, out: ${usage?.output_tokens}`);
   const files = parseGeneratedFiles(text, { truncated: stopReason === 'max_tokens' });
   assertFiles(files);
-  return files;
+  return { files, usage };
 }
 
 export async function refine({ client, model, maxTokens, maxContinuations, ctx, files, review, pixelMismatchPct, figmaImage, renderImage, diffImage }) {
@@ -167,7 +167,7 @@ export async function refine({ client, model, maxTokens, maxContinuations, ctx, 
   // keep any file the model failed to re-emit
   const merged = { ...files, ...updated };
   assertFiles(merged);
-  return merged;
+  return { files: merged, usage };
 }
 
 function assertFiles(files) {

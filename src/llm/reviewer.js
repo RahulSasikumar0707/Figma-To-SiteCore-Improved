@@ -90,5 +90,5 @@ export async function review({ client, model, ctx, files, figmaImage, renderImag
   verdict.score = Math.max(0, Math.min(100, Number(verdict.score) || 0));
   verdict.issues = Array.isArray(verdict.issues) ? verdict.issues.filter((i) => i && typeof i === 'object') : [];
   log.ok(`Review score: ${verdict.score}/100 (${verdict.issues.length} issues)`);
-  return verdict;
+  return { ...verdict, usage };
 }
