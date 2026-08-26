@@ -294,7 +294,9 @@ This creates:
   `--manifest-only`; the curated one checked in was produced by multi-agent analysis.
 - `src/eds/storybook.js` — fetches each component's live DOM snippet from the EDS
   redesign Storybook (`EDS_STORYBOOK_BASE`, default `https://affinitycmpd103.gilead.com`).
-  Snippets are refreshed from Storybook on every run and used to ground the agents.
+  Storybook is crawled only when `eds-manifest.json` is missing or invalid; a
+  valid local manifest is used as-is, allowing normal runs outside the corporate
+  network.
 - `src/figma/normalize.js` — Figma tree → layout spec + asset detection algorithms.
 - `src/eds/matcher.js` — section→component scoring heuristics.
 - `src/llm/generator.js` / `src/llm/reviewer.js` — the two-key agent loop.

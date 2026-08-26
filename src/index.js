@@ -28,7 +28,7 @@ import { normalizeDesign, compactSpec } from './figma/normalize.js';
 import { downloadAssets, downloadReferenceScreenshot } from './assets/downloader.js';
 import { buildDesignTokens } from './tokens/designTokens.js';
 import { loadEdsManifest } from './eds/manifest.js';
-import { scanStorybookComponents, hydrateStorybookSnippets } from './eds/storybook.js';
+import { scanStorybookComponents } from './eds/storybook.js';
 import { matchSections, shortlistedComponents } from './eds/matcher.js';
 import { makeClient, resolveModel } from './llm/anthropicClient.js';
 import { generate, refine } from './llm/generator.js';
@@ -147,14 +147,13 @@ async function main() {
 
   // ── 5. EDS component matching ────────────────────────────────────────────
   log.step('Matching design sections against the 37 EDS components…');
-  const components = await loadEdsManifest(cfg);
-  // Refresh the canonical DOM snippets from the live EDS Storybook so the
-  // agents ground on the current component markup (replaces the local folder).
-  try {
-    await hydrateStorybookSnippets(components, { base: cfg.edsStorybookBase });
-  } catch (err) {
-    warnings.push(`Storybook snippet refresh failed (${err.message}); using curated snippets from eds-manifest.json.`);
-    log.warn(warnings.at(-1));
+  const { components, source: manifestSource } = await loadEdsManifest(cfg);
+  // A curated manifest includes the component snippets. Avoid the internal
+  // Affinity Storybook when it is available; it may be unreachable outside the
+  // corporate network. The loader crawls Storybook only when the manifest is
+  // missing or invalid (or when --manifest-only is explicitly requested).
+  if (manifestSource === 'local-manifest') {
+    log.info('Using local EDS manifest snippets; Storybook refresh skipped.');
   }
   const matches = matchSections(design.root, components);
   const shortlist = shortlistedComponents(matches, components);

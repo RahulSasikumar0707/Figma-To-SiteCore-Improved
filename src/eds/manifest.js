@@ -10,7 +10,7 @@ import { scanStorybookComponents } from './storybook.js';
  * extracts eds-* classes and a trimmed snippet per component, so the converter
  * still works without the curated file.
  */
-export async function loadEdsManifest({ edsManifestPath }) {
+export async function loadEdsManifest({ edsManifestPath, edsStorybookBase }) {
   let curated = null;
   try {
     curated = readJsonIfExists(edsManifestPath);
@@ -26,11 +26,14 @@ export async function loadEdsManifest({ edsManifestPath }) {
     if (dropped) log.warn(`Dropped ${dropped} malformed entr${dropped === 1 ? 'y' : 'ies'} from eds-manifest.json.`);
     if (components.length) {
       log.ok(`Loaded curated EDS manifest (${components.length} components) from ${path.basename(edsManifestPath)}`);
-      return components;
+      return { components, source: 'local-manifest' };
     }
   }
   log.warn('Curated eds-manifest.json not usable — building manifest from the EDS Storybook.');
-  return scanStorybookComponents();
+  return {
+    components: await scanStorybookComponents({ base: edsStorybookBase }),
+    source: 'storybook-scan',
+  };
 }
 
 /** Compact one-line-per-component catalog for LLM prompts. */
