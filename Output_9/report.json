@@ -1,0 +1,689 @@
+{
+  "design": {
+    "name": "Desktop - 2",
+    "fileKey": "HOduchunJj9pJt4ruH5r3r",
+    "nodeId": "0:105",
+    "source": "REST"
+  },
+  "generatedAt": "2026-08-27T12:16:10.040260+00:00",
+  "finalScore": 72.0,
+  "threshold": 95.0,
+  "pixelMismatchPct": 11.209323835861857,
+  "iterations": [
+    {
+      "score": 72.0,
+      "issueCount": 6,
+      "critical": 0,
+      "major": 4,
+      "minor": 2,
+      "pixelMismatchPct": 11.209323835861857,
+      "weightedPixelMismatchPct": 11.209323835861857,
+      "mismatchedPixels": 384413,
+      "visualVerified": true,
+      "dimensionsMatch": false,
+      "responsiveViolations": 0,
+      "stable": true,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 1,
+      "documentHeightErrorPx": 0.0,
+      "viewports": [
+        {
+          "name": "1440px",
+          "nodeId": "0:105",
+          "cssWidth": 1440.0,
+          "cssHeight": 6069.0,
+          "scale": 0.6263888888888889,
+          "dimensionsEqual": false,
+          "referenceSize": [
+            902,
+            3800
+          ],
+          "renderedSize": [
+            902,
+            3802
+          ],
+          "mismatchedPixels": 384413,
+          "totalPixels": 3429404,
+          "mismatchPct": 11.209323835861857,
+          "meanAbsoluteError": 13.33314914195003,
+          "maxChannelDelta": 255,
+          "threshold": 31,
+          "exact": false,
+          "mismatchBounds": [
+            0,
+            0,
+            902,
+            3802
+          ],
+          "stable": true,
+          "pixelHash": "fb8391c3be03e5fb9c146b93bbfc0465bc1b86ced082f8df8ca6070c20a3ea4d",
+          "resourceErrors": []
+        }
+      ]
+    }
+  ],
+  "status": "best-effort",
+  "accuracy": {
+    "mode": "standard",
+    "targetMismatchPct": 0.0,
+    "diffThreshold": 31,
+    "converged": false,
+    "exact": false,
+    "visualVerified": true,
+    "stable": true,
+    "stopReason": "refinement_model_error",
+    "bestIteration": 1,
+    "viewports": [
+      {
+        "name": "1440px",
+        "nodeId": "0:105",
+        "cssWidth": 1440.0,
+        "cssHeight": 6069.0,
+        "scale": 0.6263888888888889,
+        "dimensionsEqual": false,
+        "referenceSize": [
+          902,
+          3800
+        ],
+        "renderedSize": [
+          902,
+          3802
+        ],
+        "mismatchedPixels": 384413,
+        "totalPixels": 3429404,
+        "mismatchPct": 11.209323835861857,
+        "meanAbsoluteError": 13.33314914195003,
+        "maxChannelDelta": 255,
+        "threshold": 31,
+        "exact": false,
+        "mismatchBounds": [
+          0,
+          0,
+          902,
+          3802
+        ],
+        "stable": true,
+        "pixelHash": "fb8391c3be03e5fb9c146b93bbfc0465bc1b86ced082f8df8ca6070c20a3ea4d",
+        "resourceErrors": []
+      }
+    ],
+    "responsiveAudit": [
+      {
+        "viewportWidth": 375,
+        "documentWidth": 375,
+        "documentHeight": 6837,
+        "horizontalOverflowPx": 0,
+        "overflowElements": [],
+        "brokenImages": [],
+        "clippedElements": [],
+        "hookCentres": {},
+        "fontsReady": true
+      },
+      {
+        "viewportWidth": 768,
+        "documentWidth": 768,
+        "documentHeight": 6835,
+        "horizontalOverflowPx": 0,
+        "overflowElements": [],
+        "brokenImages": [],
+        "clippedElements": [],
+        "hookCentres": {},
+        "fontsReady": true
+      },
+      {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "documentHeight": 6069,
+        "horizontalOverflowPx": 0,
+        "overflowElements": [],
+        "brokenImages": [],
+        "clippedElements": [],
+        "hookCentres": {},
+        "fontsReady": true
+      },
+      {
+        "viewportWidth": 2016,
+        "documentWidth": 2016,
+        "documentHeight": 6069,
+        "horizontalOverflowPx": 0,
+        "overflowElements": [],
+        "brokenImages": [],
+        "clippedElements": [],
+        "hookCentres": {},
+        "fontsReady": true
+      }
+    ],
+    "geometry": {
+      "designSize": [
+        1440.0,
+        6069.0
+      ],
+      "renderedSize": [
+        1440.0,
+        6069.0
+      ],
+      "documentHeightErrorPx": 0.0,
+      "matchedNodes": 0,
+      "measurableNodes": 167,
+      "hookCoveragePct": 0.0,
+      "unmatchedHooks": [],
+      "worstNodes": [],
+      "driftSequence": [],
+      "tolerancePx": 2.0,
+      "nodesOutOfTolerance": 0,
+      "viewport": "1440px",
+      "layoutPinning": {
+        "designWidth": 1440.0,
+        "checkedWidths": [],
+        "pinnedElements": [],
+        "worstDriftFraction": 0.0
+      },
+      "layoutPinningHeadline": null
+    }
+  },
+  "contract": {
+    "passed": false,
+    "violations": [
+      {
+        "severity": "major",
+        "area": "geometry/hooks",
+        "description": "No data-figma-id attributes were emitted, so no element can be measured against its Figma box.",
+        "fix": "Add data-figma-id=\"<node id>\" to every top-level section, card, media block, the header and the footer, using the id field from the design spec."
+      }
+    ]
+  },
+  "componentMap": {
+    "mappings": [
+      {
+        "designSection": "Frame 40 (top navigation bar)",
+        "edsComponent": "header",
+        "modifiers": [
+          "navbar",
+          "navbar-expand-lg"
+        ],
+        "confidence": 95,
+        "notes": "Sticky translucent gray bar with DHS logo, 4 nav links and Log In / Sign Up eds-btn CTAs; Bootstrap collapse handles mobile."
+      },
+      {
+        "designSection": "image 1 + hero copy (Take your first step…)",
+        "edsComponent": "hero-banner",
+        "modifiers": [
+          "eds-hero-banner"
+        ],
+        "confidence": 92,
+        "notes": "Left text column, right 675x758 image using the EDS <picture> pattern; fixed 758px height at desktop."
+      },
+      {
+        "designSection": "We provide you with different type of healthcare jobs (Frames 18/19/20 + bordered rectangles)",
+        "edsComponent": "cards",
+        "modifiers": [
+          "card-img-center"
+        ],
+        "confidence": 90,
+        "notes": "Three eds-card cards (398x318, 1px #181818 border, 10px radius) in a Bootstrap row with 33px gutters; col-12 col-md-6 col-lg-4."
+      },
+      {
+        "designSection": "Fast track to your next job intro",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "text-center"
+        ],
+        "confidence": 85,
+        "notes": "Centered heading + sub-copy block."
+      },
+      {
+        "designSection": "Create your profile feature (Rectangle 34 + floating profile/verified/experience cards)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "eds-card overlays"
+        ],
+        "confidence": 85,
+        "notes": "Image with absolutely-positioned eds-card float cards (radii 15px w/ one square corner) and outline eds-btn CTA."
+      },
+      {
+        "designSection": "Explore your options feature (Rectangle 49 + HealthisWealth job card)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "eds-card overlays"
+        ],
+        "confidence": 85,
+        "notes": "Text left / image right; floating 403x274 job card with Interested/Apply outline buttons."
+      },
+      {
+        "designSection": "Talk on your terms feature (Rectangle 53 + chat card)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "eds-card overlays"
+        ],
+        "confidence": 85,
+        "notes": "Image left / text right; floating white chat card with two circular avatars."
+      },
+      {
+        "designSection": "Explore top healthcare jobs list (Groups 40/48/49/50 + See details)",
+        "edsComponent": "professional-profile",
+        "modifiers": [
+          "cards",
+          "col-lg-6 grid"
+        ],
+        "confidence": 80,
+        "notes": "2x2 Bootstrap grid (146px column gap / 100px row gap at desktop) of icon + title + company•location rows with See details outline buttons; stacks to 1-up below lg."
+      },
+      {
+        "designSection": "Explore jobs / Browse all jobs / Sign up now CTAs",
+        "edsComponent": "buttons",
+        "modifiers": [
+          "eds-btn",
+          "gs-btn-primary-like solid orange"
+        ],
+        "confidence": 90,
+        "notes": "Solid #fc7c05, 10px radius, Sora 800 24px, #d9d9d9 text, 20/50 padding."
+      },
+      {
+        "designSection": "Already we help 1000+ people (orbit graphic)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "custom orbit visual"
+        ],
+        "confidence": 80,
+        "notes": "720px circle bg with 3 dashed rings, avatar images and dot icons positioned by percentages so the graphic scales responsively."
+      },
+      {
+        "designSection": "Sign up and get matched band (Rectangle 82)",
+        "edsComponent": "announcement-banner",
+        "modifiers": [
+          "eds-announcement-banner"
+        ],
+        "confidence": 88,
+        "notes": "1290x330 #fc7c0552 band with centered heading and Sign up now eds-btn."
+      },
+      {
+        "designSection": "Footer (DHS brand, Partnership/About/Support columns)",
+        "edsComponent": "footer",
+        "modifiers": [
+          "eds-link columns"
+        ],
+        "confidence": 92,
+        "notes": "Brand + description and three link columns; Partnership heading uses Poppins, links #00000080 20px; fixed 466px height at desktop."
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "a1",
+      "nodeId": "0:126",
+      "name": "Rectangle 34",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "bcb609d2aecd23c34b1b7b3d166dbdb9cb5cb49d",
+      "w": 632.0,
+      "h": 506.0,
+      "file": "assets/images/rectangle-34.png"
+    },
+    {
+      "id": "a2",
+      "nodeId": "0:127",
+      "name": "Rectangle 49",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ff7b2344836e85ead0e9c3b15ad7cd85dff1f47f",
+      "w": 632.0,
+      "h": 506.0,
+      "file": "assets/images/rectangle-49.png"
+    },
+    {
+      "id": "a3",
+      "nodeId": "0:128",
+      "name": "Rectangle 53",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ca649835c1cf4343285af0db065e6bbe83eb64d8",
+      "w": 632.0,
+      "h": 506.0,
+      "file": "assets/images/rectangle-53.png"
+    },
+    {
+      "id": "a4",
+      "nodeId": "0:143",
+      "name": "Ellipse 1",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "966988ec0415fb4a6c8c828899e4352d054d53a2",
+      "w": 100.0,
+      "h": 100.0,
+      "file": "assets/images/ellipse-1.jpg"
+    },
+    {
+      "id": "a5",
+      "nodeId": "0:144",
+      "name": "Ellipse 2",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "7c3903577eb6afb7619fa84a07e3dd6f32a0f3d2",
+      "w": 100.0,
+      "h": 100.0,
+      "file": "assets/images/ellipse-2.jpg"
+    },
+    {
+      "id": "a6",
+      "nodeId": "0:145",
+      "name": "Ellipse 3",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f83a440042b9f70ba3d952ff87ab4d233b74c886",
+      "w": 100.0,
+      "h": 100.0,
+      "file": "assets/images/ellipse-3.jpg"
+    },
+    {
+      "id": "a7",
+      "nodeId": "0:146",
+      "name": "Ellipse 4",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "27fe64815d87fe8ff927a6ba43c3295a2c971c0d",
+      "w": 200.0,
+      "h": 200.0,
+      "file": "assets/images/ellipse-4.jpg"
+    },
+    {
+      "id": "a8",
+      "nodeId": "0:147",
+      "name": "Ellipse 6",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "7ba2ebbb65bb0d4b971a6c1ee901ed11302b3b11",
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/images/ellipse-6.jpg"
+    },
+    {
+      "id": "a9",
+      "nodeId": "7:67",
+      "name": "Ellipse 21",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f240b13a1518ef9ce2222ec067f808b71ff1a081",
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/images/ellipse-21.jpg"
+    },
+    {
+      "id": "a15",
+      "nodeId": "0:149",
+      "name": "Ellipse 5",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "b14c4e4caaca264d8cb4b6a2d731f85267ff7447",
+      "w": 100.0,
+      "h": 100.0,
+      "file": "assets/images/ellipse-5.jpg"
+    },
+    {
+      "id": "a16",
+      "nodeId": "0:151",
+      "name": "image 1",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "9df4f11a1837a3eabb44186d1ac5c42822232222",
+      "w": 675.0,
+      "h": 758.0,
+      "file": "assets/images/image-1.png"
+    },
+    {
+      "id": "a20",
+      "nodeId": "0:186",
+      "name": "Rectangle 101",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "adeba30330b1ff565566360c6245b4a95eaa5a3f",
+      "w": 96.0,
+      "h": 85.0,
+      "file": "assets/images/rectangle-101.png"
+    },
+    {
+      "id": "a24",
+      "nodeId": "0:221",
+      "name": "Ellipse 9",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "420c0e0135d90704aa67338cd04873abdf014033",
+      "w": 70.0,
+      "h": 70.0,
+      "file": "assets/images/ellipse-9.png"
+    },
+    {
+      "id": "a25",
+      "nodeId": "0:225",
+      "name": "Ellipse 10",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "bf92d1b9f895b4c1cc102827224d3345e12377af",
+      "w": 70.0,
+      "h": 70.0,
+      "file": "assets/images/ellipse-10.png"
+    },
+    {
+      "id": "a10",
+      "nodeId": "0:148",
+      "name": "Ellipse 7",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 36.0,
+      "h": 36.0,
+      "file": "assets/icons/ellipse-7.svg"
+    },
+    {
+      "id": "a11",
+      "nodeId": "7:68",
+      "name": "Ellipse 22",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 36.0,
+      "h": 36.0,
+      "file": "assets/icons/ellipse-22.svg"
+    },
+    {
+      "id": "a12",
+      "nodeId": "7:69",
+      "name": "Ellipse 23",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 36.0,
+      "h": 36.0,
+      "file": "assets/icons/ellipse-23.svg"
+    },
+    {
+      "id": "a13",
+      "nodeId": "7:70",
+      "name": "Ellipse 24",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 36.0,
+      "h": 36.0,
+      "file": "assets/icons/ellipse-24.svg"
+    },
+    {
+      "id": "a14",
+      "nodeId": "7:71",
+      "name": "Ellipse 25",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 36.0,
+      "h": 36.0,
+      "file": "assets/icons/ellipse-7.svg"
+    },
+    {
+      "id": "a17",
+      "nodeId": "0:166",
+      "name": "material-symbols:shelf-position-outline",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 50.0,
+      "h": 50.0,
+      "file": "assets/icons/material-symbols-shelf-position-outline.svg"
+    },
+    {
+      "id": "a18",
+      "nodeId": "0:173",
+      "name": "ic:baseline-card-travel",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 50.0,
+      "h": 50.0,
+      "file": "assets/icons/ic-baseline-card-travel.svg"
+    },
+    {
+      "id": "a19",
+      "nodeId": "0:180",
+      "name": "ic:outline-book",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 50.0,
+      "h": 50.0,
+      "file": "assets/icons/ic-outline-book.svg"
+    },
+    {
+      "id": "a21",
+      "nodeId": "0:194",
+      "name": "Vector",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 70.0,
+      "h": 70.0,
+      "file": "assets/icons/vector.svg"
+    },
+    {
+      "id": "a22",
+      "nodeId": "0:196",
+      "name": "uil:comment-alt-verify",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 50.0,
+      "h": 50.0,
+      "file": "assets/icons/uil-comment-alt-verify.svg"
+    },
+    {
+      "id": "a23",
+      "nodeId": "0:205",
+      "name": "Ellipse 8",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 72.0,
+      "h": 72.0,
+      "file": "assets/icons/ellipse-8.svg"
+    },
+    {
+      "id": "a26",
+      "nodeId": "7:14",
+      "name": "Group 41",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/icons/group-41.svg"
+    },
+    {
+      "id": "a27",
+      "nodeId": "7:39",
+      "name": "Group 46",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/icons/group-41.svg"
+    },
+    {
+      "id": "a28",
+      "nodeId": "7:28",
+      "name": "Group 44",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/icons/group-41.svg"
+    },
+    {
+      "id": "a29",
+      "nodeId": "7:42",
+      "name": "Group 47",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 80.0,
+      "h": 80.0,
+      "file": "assets/icons/group-41.svg"
+    },
+    {
+      "id": "a30",
+      "nodeId": "7:10",
+      "name": "Star 2",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 20.0,
+      "h": 20.0,
+      "file": "assets/icons/star-2.svg"
+    }
+  ],
+  "warnings": [
+    "https://mcp.figma.com/mcp requires Figma OAuth through a supported MCP host and cannot use FIGMA_TOKEN directly. Set FIGMA_MCP_URL=http://127.0.0.1:3845/mcp after enabling Figma Desktop MCP, or set FIGMA_SOURCE=rest. Continuing with REST.",
+    "eds-native.css was not found; generated styles.css must carry complete component styling.",
+    "Refinement model failed; restored the best measured candidate: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'You have reached your specified workspace API usage limits. You will regain access on 2026-09-01 at 00:00 UTC.'}, 'request_id': 'req_011CeTEhrsWUamewnQY6EaAi'}",
+    "1 output-contract violation(s) remain in the delivered files: geometry/hooks"
+  ],
+  "remainingIssues": [
+    {
+      "severity": "major",
+      "area": "geometry/hooks",
+      "description": "No data-figma-id attributes were emitted, so no element can be measured against its Figma box.",
+      "fix": "Add data-figma-id=\"<node id>\" to every top-level section, card, media block, the header and the footer, using the id field from the design spec."
+    },
+    {
+      "severity": "major",
+      "area": "Explore top healthcare jobs — grid position",
+      "description": "The 2x2 job grid renders ~95px lower than the design. Figma places row-1 icons at y=3989 and row-2 at y=4169; the render puts them at ~y=4084 / ~y=4264 and the 'Explore jobs' CTA at ~y=4410 instead of y=4316, so it nearly collides with the orbit circle (top y=4453) of the next section. Root cause: `.jobs-grid { --bs-gutter-y: 100px; margin-top: 100px }` — the explicit margin-top overrides Bootstrap's compensating `margin-top: calc(-1 * var(--bs-gutter-y))` on `.row`, while each `.col-*` still receives `margin-top: 100px` from the gutter, stacking to ~+200px total instead of +100px.",
+      "fix": "Either drop the explicit `margin-top` on `.jobs-grid` and wrap the row in a spacer with `margin-top: 105px` (keeping Bootstrap's negative row margin), or set `.jobs-grid { margin-top: 5px }` at >=1200px so sub-copy end (y≈3884) + 5px + 100px col gutter lands row-1 icons at y=3989. Verify 'Explore jobs' CTA lands at y=4316."
+    },
+    {
+      "severity": "major",
+      "area": "Hero — image crop",
+      "description": "The hero photo (assets/images/image-1.png, displayed 675x758 at x=765, y=130) renders a noticeably wider/zoomed-out composition than the Figma fill crop: in Figma the nurse's face and crossed arms fill the frame; in the render she is smaller and shifted up-left with extra background (blinds/furniture) visible bottom-right. This region drives the largest diff clusters (55–75% mismatch across the hero image tiles).",
+      "fix": "Reproduce the Figma image-fill crop in CSS: wrap the img in a 675x758 `overflow:hidden` container and apply `object-fit:cover` with a zoom, e.g. `width:675px;height:758px;object-fit:cover;transform:scale(1.3);transform-origin:50% 35%` (tune scale/origin against the reference), or re-export the cropped fill from Figma at 675x758."
+    },
+    {
+      "severity": "major",
+      "area": "Geometry hooks (automated contract check)",
+      "description": "Mechanical check flagged: no data-figma-id attributes are emitted anywhere, so none of the 167 measurable nodes can be matched to their Figma boxes (hook coverage 0%). Not re-verified visually here, but it blocks a passing verdict.",
+      "fix": "Add data-figma-id=\"<node id>\" (e.g. 0:105, 0:151, 0:124, 7:62, 0:150, 9:17) to the header, footer, each top-level section, media blocks and cards using the ids from the design spec."
+    },
+    {
+      "severity": "minor",
+      "area": "Job types — card row position",
+      "description": "Same double-gutter defect as the jobs grid, smaller magnitude: `.jobtype-row { --bs-gutter-y: 33px; margin-top: 70px }` overrides Bootstrap's negative row margin while cols keep +33px, so cards sit at ~y=1281 instead of y=1263 (~18px low). Card bottoms land at ~1599 vs 1581; visible ghosting on card borders and 'Permanent positions'/'Learn more' text in the diff.",
+      "fix": "At >=1200px set `.jobtype-row { margin-top: 37px }` (37 + 33 gutter = 70px gap below sub-copy) or restore Bootstrap's negative row margin and wrap the row with the intended 70px spacing. Also nudge `.section-sub` in this section: Figma puts it at y=1142 but the render has it at ~y=1133 (heading line boxes 100.8px vs Figma's 110px); increase the sub margin-top from 24px to ~33px here."
+    },
+    {
+      "severity": "minor",
+      "area": "Header — nav horizontal alignment",
+      "description": "Nav labels ghost horizontally in the diff: HOME should start at x=294, ABOUT x=409, LOCATION x=533, BROWSE JOBS x=694 (50px gaps after a 90px logo + 131px offset). The rendered logo ('DHS' Sora 700 40px plus anchor padding) is wider than the 90px Figma box, pushing all links ~10–20px right; Log In / Sign Up CTAs also drift slightly from x=1083 / x=1235.",
+      "fix": "Constrain the logo to width:90px (e.g. `.dhs-logo { width:90px; letter-spacing:-0.5px }`) or reduce `.dhs-nav` margin-left so HOME starts at x=294; pin `.dhs-header-ctas` so the Log In button's left edge is at x=1083 and Sign Up ends at x=1366."
+    }
+  ]
+}

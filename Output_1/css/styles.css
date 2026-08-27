@@ -1,0 +1,444 @@
+/* =========================================================
+   Cover page — EDS + Bootstrap 5.1.3
+   Mobile-first; exact collage geometry at the design width.
+   ========================================================= */
+
+body {
+  margin: 0;
+  font-family: var(--fig-font-primary);
+  background-color: var(--fig-color-c-3b3b3b);
+  color: var(--fig-color-primary);
+}
+
+/* ---------- Cover shell ---------- */
+.cover {
+  background-color: var(--fig-color-c-3b3b3b);
+  overflow-x: hidden;
+}
+
+.cover-canvas {
+  max-width: 1600px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+.cover-intro,
+.cover-col-mid,
+.cover-col-right {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.cover-col-mid,
+.cover-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---------- Intro column ---------- */
+.cover-intro {
+  color: var(--fig-color-secondary);
+}
+
+.cover-title {
+  margin: 0 0 32px;
+  font-weight: 600;
+  font-size: clamp(44px, 6vw, var(--fig-text-91_5));
+  line-height: 1.13;
+  color: var(--fig-color-secondary);
+}
+
+.cover-line {
+  display: block;
+  width: 422px;
+  max-width: 100%;
+  height: 2px;
+  margin: 0 0 32px;
+  background-color: var(--fig-color-secondary);
+}
+
+.cover-subtitle {
+  margin: 0 0 48px;
+  max-width: 458px;
+  font-weight: 500;
+  font-size: clamp(28px, 3.5vw, var(--fig-text-54_1));
+  line-height: 1.35;
+  color: var(--fig-color-secondary);
+}
+
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cover-logos img {
+  flex: none;
+}
+
+/* ---------- Shared card / panel resets ---------- */
+.cover-panel {
+  background-color: var(--fig-color-secondary);
+}
+
+.cover .card {
+  border: 0;
+  border-radius: 0;
+  background-color: var(--fig-color-secondary);
+}
+
+.cover .card .card-body {
+  padding: 0;
+}
+
+.cover .card .card-title,
+.cover .card .card-text {
+  margin: 0;
+  color: var(--fig-color-primary);
+}
+
+.cover .card-img {
+  border-radius: 0;
+}
+
+/* ---------- Header Section (hero card) ---------- */
+.hero-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 43px;
+  padding: 26px 24px;
+}
+
+.hero-card-content {
+  flex: 1 1 212px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.hero-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.hero-kicker {
+  margin: 0;
+  font-weight: 600;
+  font-size: var(--fig-text-12_6);
+  line-height: 19px;
+  color: var(--fig-color-primary);
+}
+
+.hero-title {
+  font-weight: 600;
+  font-size: var(--fig-text-42_8);
+  line-height: 44px;
+}
+
+.hero-desc {
+  font-weight: 400;
+  font-size: var(--fig-text-10_7);
+  line-height: 17px;
+}
+
+.hero-card-img {
+  flex: 0 1 212px;
+  max-width: 212px;
+  width: 100%;
+}
+
+.hero-card-img img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Button (eds-btn primary) ---------- */
+.cover .eds-btn.gs-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 15px 40px;
+  background-color: var(--fig-color-primary);
+  color: var(--fig-color-secondary);
+  font-weight: 600;
+  font-size: var(--fig-text-12_6);
+  line-height: 19px;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+}
+
+.cover .eds-btn.gs-btn-primary:hover,
+.cover .eds-btn.gs-btn-primary:focus {
+  background-color: #000000;
+  color: var(--fig-color-secondary);
+}
+
+/* ---------- Gallery panels ---------- */
+.gallery-card-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 12px;
+}
+
+.gallery-heading {
+  margin: 0;
+  font-weight: 600;
+  font-size: var(--fig-text-15_4);
+  line-height: 20px;
+  text-align: center;
+  color: var(--fig-color-primary);
+}
+
+.gallery-heading-sm {
+  font-size: var(--fig-text-15_5);
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 24px 12px;
+  width: 100%;
+}
+
+.gallery-item {
+  flex: 1 1 140px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gallery-item .card-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.gallery-grid-lg .gallery-item .card-img img {
+  aspect-ratio: 190 / 159;
+}
+
+.gallery-item .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.gallery-item-title {
+  font-weight: 600;
+  font-size: var(--fig-text-9_7);
+  line-height: 15px;
+}
+
+.gallery-item-tags {
+  font-weight: 400;
+  font-size: var(--fig-text-8_2);
+  line-height: 13px;
+}
+
+/* ---------- Skills panels ---------- */
+.skills-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 12px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.skills-title {
+  font-weight: 600;
+  font-size: var(--fig-text-13_0);
+  line-height: 20px;
+}
+
+.skills-desc {
+  font-weight: 400;
+  font-size: var(--fig-text-8_2);
+  line-height: 13px;
+}
+
+.skills-icon-lg {
+  width: 60px;
+  height: 60px;
+}
+
+.skills-icon-sm {
+  width: 31px;
+  height: 31px;
+}
+
+/* Vertical skills card */
+.skills-card-v {
+  flex: 1 1 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 31px 20px;
+}
+
+.skills-card-v .card-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.skills-card-v .card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+/* Horizontal skills card */
+.skills-card-h {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 31px 20px;
+}
+
+.skills-card-h .card-img {
+  width: auto;
+  flex: none;
+}
+
+.skills-card-h .card-body {
+  flex: 1 1 160px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+/* =========================================================
+   Breakpoints
+   ========================================================= */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .cover-canvas {
+    padding: 56px 40px;
+    gap: 48px;
+  }
+
+  .hero-card {
+    padding: 26px 75px;
+  }
+}
+
+/* Small desktop: two panel columns under the intro */
+@media (min-width: 1024px) {
+  .cover-col-mid,
+  .cover-col-right {
+    flex: 1 1 calc(50% - 24px);
+  }
+}
+
+/* Design width: exact collage geometry (frame 1600 x 960, clipped canvas) */
+@media (min-width: 1560px) {
+  .cover-canvas {
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 88px 0 0;
+    height: 960px;
+    overflow: hidden;
+  }
+
+  .cover-intro {
+    flex: 0 0 458px;
+    margin-left: 80px;
+    padding-top: 14px;
+  }
+
+  .cover-col-mid {
+    flex: 0 0 620px;
+    margin-left: 97px;
+  }
+
+  .cover-col-right {
+    flex: 0 0 618px;
+    margin-left: 27px;
+  }
+
+  .cover-title {
+    font-size: var(--fig-text-91_5);
+    line-height: 103px;
+    margin-bottom: 49px;
+  }
+
+  .cover-line {
+    margin-bottom: 71px;
+  }
+
+  .cover-subtitle {
+    font-size: var(--fig-text-54_1);
+    line-height: 73px;
+    margin-bottom: 137px;
+  }
+
+  /* Header Section card is 617px inside the 620px column */
+  .cover-col-mid > .hero-card {
+    width: 617px;
+    justify-content: flex-end;
+    padding: 26px 75px;
+  }
+
+  /* Gallery 1281 */
+  .gallery-panel-sm {
+    padding: 25px 48px 23px;
+    gap: 27px;
+  }
+
+  .gallery-grid-sm {
+    gap: 28px 21px;
+  }
+
+  .gallery-grid-sm .gallery-item {
+    flex: 0 0 160px;
+  }
+
+  /* Gallery Section (right column) */
+  .gallery-grid-lg .gallery-item {
+    flex: 0 0 190px;
+  }
+
+  /* Skills cards distribute evenly across their rows */
+  .skills-card-v,
+  .skills-card-h {
+    flex: 1 1 0;
+  }
+}

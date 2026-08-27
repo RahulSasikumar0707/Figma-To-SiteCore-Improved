@@ -1,5 +1,14 @@
-node_modules/
 .env
-Output_*/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+llm-raw-*.txt
 *.log
 .DS_Store

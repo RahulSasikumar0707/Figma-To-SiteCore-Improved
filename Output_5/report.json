@@ -1,0 +1,559 @@
+{
+  "design": {
+    "name": "HOMEPAGE",
+    "fileKey": "VIBFKV6rZiXNVG3nC3yHRC",
+    "nodeId": "8:39",
+    "source": "REST"
+  },
+  "generatedAt": "2026-08-27T11:25:00.753118+00:00",
+  "finalScore": 93.0,
+  "threshold": 95.0,
+  "pixelMismatchPct": null,
+  "iterations": [
+    {
+      "score": 73.0,
+      "issueCount": 8,
+      "critical": 0,
+      "major": 3,
+      "minor": 5,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 3,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 93.0,
+      "issueCount": 2,
+      "critical": 0,
+      "major": 0,
+      "minor": 2,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 0,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 92.0,
+      "issueCount": 4,
+      "critical": 0,
+      "major": 0,
+      "minor": 4,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": false,
+      "meaningfulImprovement": false,
+      "decision": "rejected-regression",
+      "stagnationCount": 1,
+      "contractViolations": 0,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    }
+  ],
+  "status": "best-effort",
+  "accuracy": {
+    "mode": "standard",
+    "targetMismatchPct": 0.0,
+    "diffThreshold": 31,
+    "converged": false,
+    "exact": false,
+    "visualVerified": false,
+    "stable": false,
+    "stopReason": "review_model_error",
+    "bestIteration": 2,
+    "viewports": [],
+    "responsiveAudit": [],
+    "geometry": {
+      "layoutPinning": null,
+      "layoutPinningHeadline": null
+    }
+  },
+  "contract": {
+    "passed": true,
+    "violations": []
+  },
+  "componentMap": {
+    "mappings": [
+      {
+        "designSection": "topbar (8:119)",
+        "edsComponent": "header",
+        "modifiers": [
+          "site-header",
+          "topbar"
+        ],
+        "confidence": 0.9,
+        "notes": "Header band with brand logo, All menu, locale, search and action icons; uses component eds-header wrapper."
+      },
+      {
+        "designSection": "search bar (8:26)",
+        "edsComponent": "search",
+        "modifiers": [
+          "search-box",
+          "topbar-search"
+        ],
+        "confidence": 0.95,
+        "notes": "Canonical search-box structure: component-content > search-box-input + search-box-button; min-height so longer content can grow."
+      },
+      {
+        "designSection": "hero Rectangle 69 + Group 10 (17:21, 17:27)",
+        "edsComponent": "hero-banner",
+        "modifiers": [
+          "eds-hero-banner",
+          "hero"
+        ],
+        "confidence": 0.9,
+        "notes": "Full-bleed 500px hero with left gradient scrim, title, subtitle and eds-btn CTA."
+      },
+      {
+        "designSection": "category pill rows (8:52…8:65)",
+        "edsComponent": "buttons",
+        "modifiers": [
+          "eds-btn",
+          "cat-pill",
+          "cat-pill--accent"
+        ],
+        "confidence": 0.8,
+        "notes": "Three centered rows of pill buttons; missing Figma icon exports replaced with Material Symbols."
+      },
+      {
+        "designSection": "international order block (22:69, 22:73, 22:74)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "intl",
+          "intl-text"
+        ],
+        "confidence": 0.85,
+        "notes": "Text + CTA column beside a peeking media-card row; verbatim multi-line copy via white-space:pre-line."
+      },
+      {
+        "designSection": "international media cards (22:82, 22:83, 22:86)",
+        "edsComponent": "cards",
+        "modifiers": [
+          "eds-card",
+          "card",
+          "media-card"
+        ],
+        "confidence": 0.85,
+        "notes": "285x229 image cards; card 22:83 reproduces the full Figma layer stack (under image 22:79 + front image 22:88 + dark overlay); min-height so content can grow."
+      },
+      {
+        "designSection": "Top Sellers in Books grid (29:13, 8:77…8:88)",
+        "edsComponent": "cards",
+        "modifiers": [
+          "eds-card",
+          "card",
+          "book-card",
+          "book-card--pop"
+        ],
+        "confidence": 0.9,
+        "notes": "4x2 grid of bordered book cards; featured card uses shadow modifier; ribbon rendered in CSS (asset not exported)."
+      },
+      {
+        "designSection": "Load More (34:153)",
+        "edsComponent": "buttons",
+        "modifiers": [
+          "eds-btn",
+          "gs-btn-md",
+          "gs-btn-primary",
+          "btn-amz"
+        ],
+        "confidence": 0.9,
+        "notes": "Centered orange CTA, padding 10/26 per spec."
+      },
+      {
+        "designSection": "promo banner Rectangle 29 (8:68)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "promo-banner"
+        ],
+        "confidence": 0.8,
+        "notes": "Full-width image band fixed at 357px height at desktop."
+      },
+      {
+        "designSection": "Explore our Amazing Deals (38:161, 8:76, 8:80, 8:84, 8:89)",
+        "edsComponent": "carousel",
+        "modifiers": [
+          "eds-carousel",
+          "deal-card",
+          "deal-card--feature"
+        ],
+        "confidence": 0.85,
+        "notes": "Scroll-track carousel: track keeps overflow-x auto at every breakpoint so prev/next arrows scroll it everywhere; desktop gaps 29/31/46 and 88/82 insets match Figma."
+      },
+      {
+        "designSection": "category gallery Group 44 (53:27)",
+        "edsComponent": "cards",
+        "modifiers": [
+          "eds-card",
+          "card",
+          "g-card"
+        ],
+        "confidence": 0.85,
+        "notes": "Three-column mosaic (360/537/360, left edge 59px at 1440) with per-column gaps 42/54; full Figma layer stacks incl. under images 47:79 and 47:76; gradient/dark overlays with labels."
+      },
+      {
+        "designSection": "footer (53:35)",
+        "edsComponent": "footer",
+        "modifiers": [
+          "eds-footer",
+          "site-footer"
+        ],
+        "confidence": 0.9,
+        "notes": "Black footer: inverted logo, two country rows, three orange headings, feedback + subscribe form, copyright line."
+      },
+      {
+        "designSection": "footer feedback/subscribe (8:96, 8:111, 8:112)",
+        "edsComponent": "form",
+        "modifiers": [
+          "eds-sc-form",
+          "footer-form"
+        ],
+        "confidence": 0.8,
+        "notes": "Textarea placeholder 'Write Here....', email input and SEND button matching 611x157 / 392x45 spec boxes."
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "a1",
+      "nodeId": "8:68",
+      "name": "Rectangle 29",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "057bace163016ff18a58b018c89668acc2cc1191",
+      "w": 1440.0,
+      "h": 357.0,
+      "file": "assets/images/rectangle-29.jpg"
+    },
+    {
+      "id": "a2",
+      "nodeId": "8:16",
+      "name": "Vector",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "9cf2357c84d64e824a44fbb34052a5ffbf03392d",
+      "w": 147.0,
+      "h": 47.0,
+      "file": "assets/images/vector.png"
+    },
+    {
+      "id": "a11",
+      "nodeId": "17:21",
+      "name": "Rectangle 69",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "b2fcc1f94eaffa274169dedf4dc9db7d5b2642b8",
+      "w": 1440.0,
+      "h": 500.0,
+      "file": "assets/images/rectangle-69.jpg"
+    },
+    {
+      "id": "a23",
+      "nodeId": "22:78",
+      "name": "unsplash:2zDw14yCYqk",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ca04ce56167576011163e6c1b1f051a99d5df48a",
+      "w": 296.0,
+      "h": 444.0,
+      "file": "assets/images/unsplash-2zdw14ycyqk.jpg"
+    },
+    {
+      "id": "a24",
+      "nodeId": "22:79",
+      "name": "unsplash:iwd_99qV7Uk",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f78b80e81d9b1fd8ba78f6da13b3fd1780164fa0",
+      "w": 323.0,
+      "h": 323.0,
+      "file": "assets/images/unsplash-iwd-99qv7uk.jpg"
+    },
+    {
+      "id": "a25",
+      "nodeId": "22:88",
+      "name": "unsplash:ZB4eQcNqVUs",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f89fd0f6ba2ba2456730cff50292662879393563",
+      "w": 360.0,
+      "h": 239.0,
+      "file": "assets/images/unsplash-zb4eqcnqvus.jpg"
+    },
+    {
+      "id": "a26",
+      "nodeId": "22:81",
+      "name": "unsplash:giP0e750Dr8",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "e5b044d14a5bf3dfba6452f6acb17b2ed3e68936",
+      "w": 301.0,
+      "h": 451.0,
+      "file": "assets/images/unsplash-gip0e750dr8.jpg"
+    },
+    {
+      "id": "a29",
+      "nodeId": "30:53",
+      "name": "image 9",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "8e29823283aff65914509588aca03f0edd3cdd81",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-9.png"
+    },
+    {
+      "id": "a30",
+      "nodeId": "30:43",
+      "name": "image 9",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "95f4b60da46ad8d9724c808f423991baaf6ff693",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-9-2.png"
+    },
+    {
+      "id": "a31",
+      "nodeId": "30:51",
+      "name": "image 13",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "8e7617252a9a601242b7540fe74fa26fd46ce17f",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-13.png"
+    },
+    {
+      "id": "a32",
+      "nodeId": "30:49",
+      "name": "image 12",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ad8049cc8e811f29e54195c6b9db7f77c09a0531",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-12.png"
+    },
+    {
+      "id": "a33",
+      "nodeId": "30:33",
+      "name": "image 4",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "4f3d7f8a4bb9a84e5c10db1a8c49f62c5108caf9",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-4.png"
+    },
+    {
+      "id": "a34",
+      "nodeId": "30:47",
+      "name": "image 11",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "27cf0f94af5da38ad9c36030537c7af6d67927d6",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-11.png"
+    },
+    {
+      "id": "a35",
+      "nodeId": "30:35",
+      "name": "image 5",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "58966c677dafa80060a4e116eb185e6121a7dc76",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-5.png"
+    },
+    {
+      "id": "a36",
+      "nodeId": "30:45",
+      "name": "image 10",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "1045413607f7e841cdf1e8cc04cc26ce62fff9f3",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-10.png"
+    },
+    {
+      "id": "a50",
+      "nodeId": "43:9",
+      "name": "image 14",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "29edd48c647e17181f59297715375cf246d8c4b5",
+      "w": 320.0,
+      "h": 180.0,
+      "file": "assets/images/image-14.png"
+    },
+    {
+      "id": "a52",
+      "nodeId": "46:17",
+      "name": "image 18",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "6e687fadc1643b0877dc1c8957c26e6955d858bd",
+      "w": 186.0,
+      "h": 186.0,
+      "file": "assets/images/image-18.png"
+    },
+    {
+      "id": "a53",
+      "nodeId": "46:21",
+      "name": "image 19",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "d0de02847774ce06544ccac13d0ed66341363d4c",
+      "w": 226.0,
+      "h": 119.0,
+      "file": "assets/images/image-19.png"
+    },
+    {
+      "id": "a56",
+      "nodeId": "47:26",
+      "name": "image 20",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "afd735e216d5b07ca7d6abbbffb5691328625155",
+      "w": 158.2,
+      "h": 160.0,
+      "file": "assets/images/image-20.png"
+    },
+    {
+      "id": "a64",
+      "nodeId": "16:13",
+      "name": "image 1",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "dd1fc955b22734f0f08f1bcce0e61f9b20e505f3",
+      "w": 380.0,
+      "h": 402.0,
+      "file": "assets/images/image-1.png"
+    },
+    {
+      "id": "a65",
+      "nodeId": "47:76",
+      "name": "unsplash:eCktzGjC-iU",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "33a446aad7aa21615c8bd9e79e4c793670ae8193",
+      "w": 711.0,
+      "h": 511.4,
+      "file": "assets/images/unsplash-ecktzgjc-iu.jpg"
+    },
+    {
+      "id": "a66",
+      "nodeId": "47:75",
+      "name": "unsplash:X6QffKLwyoQ",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "955da303a8b5abcb4124bcbb74274ab3e861c523",
+      "w": 540.0,
+      "h": 360.0,
+      "file": "assets/images/unsplash-x6qffklwyoq.jpg"
+    },
+    {
+      "id": "a67",
+      "nodeId": "47:79",
+      "name": "unsplash:ISg37AI2A-s",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "97e93399b324054eb9dc70b285b06623f0e6fbad",
+      "w": 451.0,
+      "h": 301.0,
+      "file": "assets/images/unsplash-isg37ai2a-s.jpg"
+    },
+    {
+      "id": "a68",
+      "nodeId": "22:77",
+      "name": "unsplash:f2Bi-VBs71M",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "7d5562ee9b0ad338d7fc62ba753155e8fd07d43f",
+      "w": 429.0,
+      "h": 286.0,
+      "file": "assets/images/unsplash-f2bi-vbs71m.jpg"
+    },
+    {
+      "id": "a69",
+      "nodeId": "47:77",
+      "name": "unsplash:D4jRahaUaIc",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "df5566b49b6d7f3c12c4fcd45de690a71b05227f",
+      "w": 555.0,
+      "h": 694.0,
+      "file": "assets/images/unsplash-d4jrahauaic.jpg"
+    },
+    {
+      "id": "a70",
+      "nodeId": "47:74",
+      "name": "unsplash:erUC4fTtCuo",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "e7ac0812054d77c05dbfb6f4a9fb76c7ec6695e8",
+      "w": 525.0,
+      "h": 350.0,
+      "file": "assets/images/unsplash-eruc4fttcuo.jpg"
+    },
+    {
+      "id": "a71",
+      "nodeId": "47:80",
+      "name": "unsplash:rHMyYDmZq2A",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "2b4fe88c7b4d74879eb4fe82b6b66d1424446c51",
+      "w": 524.0,
+      "h": 349.0,
+      "file": "assets/images/unsplash-rhmyydmzq2a.jpg"
+    }
+  ],
+  "warnings": [
+    "https://mcp.figma.com/mcp requires Figma OAuth through a supported MCP host and cannot use FIGMA_TOKEN directly. Set FIGMA_MCP_URL=http://127.0.0.1:3845/mcp after enabling Figma Desktop MCP, or set FIGMA_SOURCE=rest. Continuing with REST.",
+    "Reference screenshot unavailable for 1440px: Figma REST /v1/images/VIBFKV6rZiXNVG3nC3yHRC returned 429: Rate limit exceeded",
+    "eds-native.css was not found; generated styles.css must carry complete component styling.",
+    "Reviewer model failed after a usable page was generated: No JSON object found in model response"
+  ],
+  "remainingIssues": [
+    {
+      "severity": "minor",
+      "area": "colour fidelity",
+      "description": ".footer-logo img uses filter: invert(1) on assets/images/vector.png. Inversion hue-shifts any non-grayscale pixels — if the logo asset contains the orange (#ff9a00) arc it will render blue (#0065ff) in the footer, diverging from the white-on-black footer logo in the design (group 53:26).",
+      "fix": "Use a dedicated white footer logo asset, or if a solid-white mark is acceptable use filter: brightness(0) invert(1) to force pure white regardless of source colours."
+    },
+    {
+      "severity": "minor",
+      "area": "spacing",
+      "description": ".deal-badge uses padding: 0 15px, producing a ~73px-wide badge versus the 83px badge in the design (47:30/47:40/47:44/47:48 are 83×27 with the '% OFF' text inset 20px from the badge's left edge, e.g. 417−397). The badge is ~10px narrow and the text inset is 5px short.",
+      "fix": "Change .deal-badge padding to 0 20px so the text inset and rendered width (43px text + 40px padding = 83px) match the Figma badge."
+    }
+  ]
+}

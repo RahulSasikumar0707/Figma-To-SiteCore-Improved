@@ -1,0 +1,55 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #000000; /* used 93x */
+  --fig-color-secondary: #ffffff; /* used 86x */
+  --fig-color-c-ff9a00: #ff9a00; /* used 28x */
+  --fig-color-c-d9d9d9: #d9d9d9; /* used 16x */
+  --fig-color-c-c8c8c8: #c8c8c8; /* used 7x */
+  --fig-color-c-57575700: #57575700; /* used 5x */
+  --fig-color-c-1b1b1b: #1b1b1b; /* used 5x */
+  --fig-color-c-c4d6d2: #c4d6d2; /* used 4x */
+  --fig-color-c-e1e1e1: #e1e1e1; /* used 3x */
+  --fig-color-c-ffffff00: #ffffff00; /* used 2x */
+  --fig-color-c-3f3f3f: #3f3f3f; /* used 2x */
+  --fig-color-c-d0d0d0: #d0d0d0; /* used 1x */
+  --fig-color-c-d9d9d900: #d9d9d900; /* used 1x */
+  --fig-color-c-353535ba: #353535ba; /* used 1x */
+  --fig-color-c-1d1d1dd6: #1d1d1dd6; /* used 1x */
+  --fig-color-c-6161617a: #6161617a; /* used 1x */
+  --fig-color-c-1d1d1d00: #1d1d1d00; /* used 1x */
+  --fig-color-c-fffcfc: #fffcfc; /* used 1x */
+  --fig-color-c-282828b5: #282828b5; /* used 1x */
+  /* typography */
+  --fig-font-primary: 'Amazon Ember', sans-serif;
+  --fig-font-inter: 'Inter', sans-serif;
+  --fig-text-14_0: 14.0px; /* line-height ~17.0px */
+  --fig-text-16_0: 16.0px; /* line-height ~19.2px */
+  --fig-text-10_0: 10.0px; /* line-height ~12.0px */
+  --fig-text-12_0: 12.0px; /* line-height ~14.4px */
+  --fig-text-20_0: 20.0px; /* line-height ~24.3px */
+  --fig-text-48_0: 48.0px; /* line-height ~58.3px */
+  --fig-text-18_0: 18.0px; /* line-height ~21.8px */
+  --fig-text-32_0: 32.0px; /* line-height ~38.9px */
+  --fig-text-15_0: 15.0px; /* line-height ~18.2px */
+  /* spacing scale */
+  --fig-space-7: 7px;
+  --fig-space-10: 10px;
+  --fig-space-16: 16px;
+  --fig-space-26: 26px;
+  --fig-space-37: 37px;
+  /* border radii */
+  --fig-radius-4: 4px;
+  --fig-radius-5: 5px;
+  --fig-radius-16: 16px;
+  --fig-radius-18: 18px;
+  --fig-radius-19: 19px;
+  --fig-radius-32: 32px;
+  /* shadows */
+  --fig-shadow-1: -8.0px 7.0px 6.8px 0.0px #00000040;
+  --fig-shadow-2: 0.0px 0.0px 51.8px -17.0px #00000040;
+  --fig-shadow-3: 0.0px 0.0px 9.1px 0.0px #00000033;
+  --fig-shadow-4: 0.0px 5.0px 14.9px -2.0px #00000040;
+  --fig-shadow-5: 1.0px 3.0px 10.0px 0.0px #00000026;
+  --fig-shadow-6: 3.0px 2.0px 4.0px 0.0px #00000040;
+}

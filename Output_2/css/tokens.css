@@ -1,0 +1,41 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #041b39; /* used 27x */
+  --fig-color-secondary: #f0f4ff; /* used 17x */
+  --fig-color-c-f58626: #f58626; /* used 2x */
+  --fig-color-c-888fd387: #888fd387; /* used 1x */
+  /* typography */
+  --fig-font-primary: 'Inter', sans-serif;
+  --fig-text-18_7: 18.7px; /* line-height ~22.7px */
+  --fig-text-28_1: 28.1px; /* line-height ~34.0px */
+  --fig-text-14_1: 14.1px; /* line-height ~17.0px */
+  --fig-text-84_4: 84.4px; /* line-height ~84.4px */
+  --fig-text-44_5: 44.5px; /* line-height ~53.9px */
+  /* spacing scale */
+  --fig-space-9: 9px;
+  --fig-space-12: 12px;
+  --fig-space-16: 16px;
+  --fig-space-19: 19px;
+  --fig-space-22: 22px;
+  --fig-space-23: 23px;
+  --fig-space-28: 28px;
+  --fig-space-38: 38px;
+  --fig-space-42: 42px;
+  --fig-space-47: 47px;
+  --fig-space-48: 48px;
+  --fig-space-56: 56px;
+  --fig-space-66: 66px;
+  --fig-space-84: 84px;
+  --fig-space-199: 199px;
+  --fig-space-263: 263px;
+  /* border radii */
+  --fig-radius-38: 38px;
+  --fig-radius-56: 56px;
+  --fig-radius-82: 82px;
+  --fig-radius-91: 91px;
+  --fig-radius-96: 96px;
+  --fig-radius-100: 100px;
+  --fig-radius-113: 113px;
+  --fig-radius-115: 115px;
+}

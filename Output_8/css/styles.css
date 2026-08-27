@@ -1,0 +1,792 @@
+/* ==========================================================================
+   Livdelzi Landing Page — styles.css (loads after eds-native.css)
+   Desktop reference frame: 1366 x 4428
+   ========================================================================== */
+
+body {
+  font-family: var(--fig-font-primary);
+  color: var(--fig-color-primary);
+  background: var(--fig-color-secondary);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; }
+
+a { color: inherit; }
+
+/* Main content column: 826px, left edge at 279px on a 1366px viewport */
+.lz-container {
+  width: 826px;
+  max-width: 100%;
+  margin-left: calc(50% - 404px);
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Header (sticky)
+   ========================================================================== */
+#eds-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+/* Top bar */
+.lz-topbar {
+  background: var(--fig-color-c-8dc0d1);
+  height: 38px;
+  box-shadow: var(--fig-shadow-2);
+  position: relative;
+  z-index: 2;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin-left: calc(50% - 404px);
+  margin-right: calc(50% - 549px);
+}
+
+.topbar-note {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-secondary);
+}
+
+.topbar-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar-links a {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Main header bar */
+.lz-mainbar {
+  background: var(--fig-color-secondary);
+  height: 84px;
+  box-shadow: var(--fig-shadow-1);
+  position: relative;
+  z-index: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin-left: calc(50% - 404px);
+  margin-right: calc(50% - 388px);
+}
+
+.logo-container img {
+  display: block;
+  width: 202px;
+  height: 56px;
+}
+
+.header-inner nav { height: 100%; }
+
+.primary-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  align-items: stretch;
+}
+
+.primary-links a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-primary);
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+.primary-links li.active a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--fig-color-primary);
+}
+
+/* ==========================================================================
+   Hero banner
+   ========================================================================== */
+.lz-hero { margin-top: 1px; }
+
+.hero-media { position: relative; }
+
+.hero-media img.hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 826 / 302;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  left: 0;
+  top: 116px;
+  width: 403px;
+  height: 71px;
+  background: var(--fig-color-secondary);
+  border-radius: 0 24px 24px 0;
+  display: flex;
+  align-items: center;
+  padding-left: 70px;
+}
+
+.hero-title {
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.5px;
+  color: var(--fig-color-primary);
+  margin: 0;
+}
+
+.hero-strip {
+  height: 24px;
+  background: var(--fig-color-c-8dc0d1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-secondary);
+}
+
+/* ==========================================================================
+   Dosing section
+   ========================================================================== */
+.section-heading {
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: var(--fig-color-primary);
+  text-align: center;
+  margin: 25px 0 0;
+}
+
+.dosing-cards {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 20px;
+  margin-top: 36px;
+}
+
+.dosing-card {
+  width: 238px;
+  margin: 0 auto;
+  background: var(--fig-color-c-c5e7f3);
+  border: 0;
+  border-radius: var(--fig-radius-28);
+  text-align: center;
+}
+
+.dosing-card .card-img {
+  display: flex;
+  justify-content: center;
+}
+
+.dosing-card .card-img img {
+  display: block;
+  width: 123px;
+  height: 122px;
+}
+
+.dosing-card .card-body { padding: 0; }
+
+.dosing-card-title {
+  font-size: var(--fig-text-18_0);
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  margin: 11px 0 0;
+}
+
+/* ==========================================================================
+   Content block — take exactly as prescribed
+   ========================================================================== */
+.cb-take {
+  margin-top: 34px;
+  padding: 0 14px;
+}
+
+.cb-take .cb-row { --bs-gutter-x: 23px; }
+
+.cb-take .cb-img img {
+  display: block;
+  width: 251px;
+  height: 251px;
+  margin-top: 39px;
+}
+
+.cb-take .cb-text { max-width: 636px; }
+
+.cb-take .cb-text h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  margin: 0 0 16px;
+  max-width: 601px;
+}
+
+.cb-take .cb-text ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: var(--fig-text-12_8);
+  line-height: 19.9px;
+  color: var(--fig-color-c-383533);
+  max-width: 601px;
+}
+
+.cb-take .cb-text li { margin: 0; }
+
+/* ==========================================================================
+   Daily routine section
+   ========================================================================== */
+.routine {
+  margin-top: 51px;
+  background: var(--fig-color-c-c5e7f3);
+  padding: 36px 32px 0;
+}
+
+.routine-heading {
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0.5px;
+  color: var(--fig-color-primary);
+  text-align: center;
+  margin: 0 0 11px;
+}
+
+.routine-intro {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-primary);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.routine-cards {
+  --bs-gutter-x: 32px;
+  --bs-gutter-y: 24px;
+}
+
+.routine-card .rc-icon { height: 88px; }
+
+.routine-card .rc-icon img { display: block; }
+
+.routine-card h4 {
+  font-size: var(--fig-text-18_0);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  margin: 0 0 6px;
+}
+
+.routine-card p {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-primary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Amanda quote banner
+   ========================================================================== */
+.quote-banner {
+  margin-top: 83px;
+  position: relative;
+  background: var(--fig-color-c-c5e7f3);
+  border-radius: var(--fig-radius-21);
+  padding: 36px 0 0 51px;
+}
+
+.quote-content { max-width: 446px; }
+
+.quote-icon {
+  display: block;
+  width: 51px;
+  height: 41px;
+  margin-bottom: 22px;
+}
+
+.quote-text {
+  font-size: var(--fig-text-18_0);
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  margin: 0;
+}
+
+.quote-name {
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: var(--fig-color-primary);
+  margin: 18px 0 2px;
+}
+
+.quote-role {
+  font-size: var(--fig-text-14_0);
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: var(--fig-color-primary);
+  margin: 0;
+}
+
+.quote-img {
+  position: absolute;
+  right: 7px;
+  bottom: 0;
+  width: 386px;
+  height: 318px;
+}
+
+/* ==========================================================================
+   Accordions (Amanda story + FAQ) — shared
+   ========================================================================== */
+.eds-accordion .accordion-item {
+  border: 0;
+  background: var(--fig-color-secondary);
+}
+
+.eds-accordion .accordion-button {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 16px 16px 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: var(--fig-font-primary);
+  font-size: var(--fig-text-28_0);
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.6px;
+  color: var(--fig-color-primary);
+}
+
+.eds-accordion .accordion-button:not(.collapsed) {
+  background: transparent;
+  color: var(--fig-color-primary);
+  box-shadow: none;
+}
+
+.eds-accordion .accordion-button:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.eds-accordion .accordion-button::after { display: none; }
+
+.eds-accordion .accordion-button-title { max-width: 748px; }
+
+.eds-accordion .icon-indicator {
+  flex: none;
+  width: 15px;
+  height: 10px;
+  margin-left: auto;
+  margin-top: 9px;
+  background: url("../assets/icons/vector.svg") center / contain no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.eds-accordion .accordion-button.collapsed .icon-indicator {
+  transform: rotate(180deg);
+}
+
+.eds-accordion .accordion-body {
+  padding: 19px 0 0;
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-primary);
+}
+
+.eds-accordion .accordion-body p {
+  margin: 0;
+  max-width: 761px;
+}
+
+/* Amanda story accordion */
+.story-acc { margin-top: 30px; }
+
+.story-acc .accordion-body { padding-top: 13px; }
+
+.story-row {
+  display: flex;
+  margin-bottom: 18px;
+}
+
+.story-row:last-child { margin-bottom: 0; }
+
+.story-icon { flex: 0 0 49px; }
+
+.story-icon img { display: block; }
+
+.story-content h4 {
+  font-size: var(--fig-text-18_0);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  margin: 0 0 7px;
+}
+
+.story-content p {
+  margin: 0;
+  max-width: 593px;
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   Promo banners (orange + safety)
+   ========================================================================== */
+.promo-banner {
+  position: relative;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.promo-banner .promo-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-orange .promo-content { padding: 42px 53px 24px; }
+.promo-safety .promo-content { padding: 70px 45px 24px; }
+
+.promo-title {
+  color: var(--fig-color-secondary);
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.promo-orange .promo-title { max-width: 451px; }
+.promo-safety .promo-title { max-width: 498px; }
+
+.eds-btn.promo-btn {
+  display: inline-block;
+  background: var(--fig-color-secondary);
+  border: 0;
+  border-radius: var(--fig-radius-27);
+  padding: 13px 22px;
+  font-size: var(--fig-text-18_0);
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--fig-color-primary);
+  text-decoration: none;
+}
+
+.promo-orange .promo-btn { margin-top: 39px; }
+.promo-safety .promo-btn { margin-top: 46px; }
+
+/* ==========================================================================
+   Common questions heading
+   ========================================================================== */
+.cq-heading {
+  font-size: var(--fig-text-24_0);
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: var(--fig-color-primary);
+  margin-top: 8px;
+  margin-bottom: 21px;
+}
+
+.faq-acc { margin-top: 0; }
+
+/* ==========================================================================
+   ISI
+   ========================================================================== */
+.isi {
+  margin-top: 54px;
+  color: var(--fig-color-primary);
+}
+
+.isi .isi-head {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  margin: 0 0 2px;
+}
+
+.isi h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  margin: 4px 0 2px;
+}
+
+.isi p,
+.isi ul {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  margin: 0 0 2px;
+}
+
+.isi ul { padding-left: 18px; }
+
+.isi ul ul { margin: 0; }
+
+.isi .isi-lg {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.isi a {
+  color: var(--fig-color-primary);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+#eds-footer { margin-top: 74px; }
+
+.footer-wrap {
+  background: var(--fig-color-c-f8f8f8);
+  padding: 35px 0 24px;
+}
+
+.footer-container {
+  width: 1056px;
+  max-width: 100%;
+  margin-left: calc(50% - 462px);
+  margin-right: auto;
+}
+
+.footer-top { --bs-gutter-x: 0; }
+
+.footer-logo img {
+  display: block;
+  width: 111px;
+  height: 31px;
+}
+
+.footer-legal { padding-left: 195px; }
+
+.footer-legal p {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-c-000000);
+  margin: 0 0 16px;
+  max-width: 743px;
+}
+
+.footer-legal p:last-child { margin-bottom: 0; }
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 54px 0 0 32px;
+  padding: 0;
+  width: 846px;
+  max-width: 100%;
+}
+
+.footer-links a {
+  font-size: var(--fig-text-12_0);
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--fig-color-c-000000);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Desktop exact-height locks (chain must total 4428px @ 1366)
+   ========================================================================== */
+@media (min-width: 992px) {
+  .dosing-card { height: 217px; }
+  .cb-take { height: 297px; overflow: hidden; }
+  .routine { height: 393px; overflow: hidden; }
+  .quote-banner { height: 246px; }
+  .story-acc .accordion-item { min-height: 321px; }
+  .promo-banner { height: 272px; }
+  .faq-acc .accordion-item:nth-of-type(1) { min-height: 112px; }
+  .faq-acc .accordion-item:nth-of-type(2) { min-height: 111px; }
+  .faq-acc .accordion-item:nth-of-type(3) { min-height: 138px; }
+  .isi { height: 767px; overflow: hidden; }
+  .footer-wrap { min-height: 273px; }
+}
+
+/* ==========================================================================
+   Tablet & mobile
+   ========================================================================== */
+@media (max-width: 1199.98px) {
+  .topbar-inner { margin-right: 24px; }
+}
+
+@media (max-width: 991.98px) {
+  .lz-container {
+    width: auto;
+    margin: 0 16px;
+  }
+
+  .topbar-links { display: none; }
+
+  .topbar-inner,
+  .header-inner {
+    margin: 0 16px;
+  }
+
+  .lz-mainbar { height: auto; }
+
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+    gap: 4px 16px;
+  }
+
+  .header-inner nav { height: auto; width: 100%; }
+
+  .primary-links {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding-bottom: 6px;
+  }
+
+  .primary-links a { height: auto; padding: 4px 0; }
+
+  .lz-hero { margin-top: 1px; }
+
+  .hero-overlay {
+    top: 36%;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    padding: 10px 20px 10px 24px;
+  }
+
+  .hero-title { font-size: 18px; line-height: 28px; }
+
+  .hero-strip { height: auto; min-height: 24px; padding: 4px 12px; }
+
+  .cb-take { padding: 0; }
+
+  .cb-take .cb-img img { margin: 0 auto; }
+
+  .cb-take .cb-text { margin-top: 24px; }
+
+  .routine { padding: 32px 20px 32px; }
+
+  .routine-card .rc-icon { height: auto; margin-bottom: 12px; }
+
+  .quote-banner { padding: 24px; }
+
+  .quote-content { max-width: 100%; }
+
+  .quote-img {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 386px;
+    height: auto;
+    margin: 16px auto 0;
+  }
+
+  .eds-accordion .accordion-button {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .promo-content { min-height: 220px; }
+
+  .promo-orange .promo-content,
+  .promo-safety .promo-content { padding: 32px 24px; }
+
+  .promo-title { font-size: 20px; line-height: 28px; }
+
+  .promo-orange .promo-btn,
+  .promo-safety .promo-btn { margin-top: 28px; }
+
+  .footer-container {
+    width: auto;
+    margin: 0 16px;
+  }
+
+  .footer-legal { padding-left: 24px; }
+
+  .footer-links {
+    width: auto;
+    justify-content: flex-start;
+    margin: 24px 0 0;
+  }
+
+  #eds-footer { margin-top: 40px; }
+
+  .footer-wrap { padding: 24px 0; }
+}
+
+@media (max-width: 767.98px) {
+  .footer-legal {
+    padding-left: 0;
+    margin-top: 16px;
+  }
+
+  .story-icon { flex: 0 0 40px; }
+
+  .eds-accordion .accordion-button {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

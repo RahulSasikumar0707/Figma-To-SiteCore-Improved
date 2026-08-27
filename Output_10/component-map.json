@@ -1,0 +1,12 @@
+{"mappings":[
+  {"designSection":"Header Top + Menubar","edsComponent":"header","modifiers":["header-variant-one","sticky-header"],"confidence":92,"notes":"Secondary navigation topbar with contact info, primary navigation with logo/links/CTA. Fixed positioned to satisfy sticky requirement; Bootstrap navbar collapse on mobile."},
+  {"designSection":"HERO AREA","edsComponent":"hero-banner","modifiers":["hero-content-left"],"confidence":90,"notes":"eds-hero-banner with hero-media picture pattern (min-width sources), decorative shape overlay, eyebrow/title/subtitle/CTA."},
+  {"designSection":"CTA (Need a doctor for checkup)","edsComponent":"content-block","modifiers":[],"confidence":65,"notes":"Two-column CTA strip: heading left, call CTA button (bg-18.svg + support graphic) right."},
+  {"designSection":"SERVICES / Our All Department","edsComponent":"cards","modifiers":["card-img-center"],"confidence":82,"notes":"8 eds-card tiles in a 4x2 Bootstrap grid (col-6 col-lg-3), active state on Ophthalmology with blue border and filled icon circle."},
+  {"designSection":"VIDEO SECTION","edsComponent":"video","modifiers":[],"confidence":78,"notes":"eds-video banner with dark bg vector, text/CTA left, media right, layered play button (rings + icon asset)."},
+  {"designSection":"TEAM MEMBERS / Professional Care Provider","edsComponent":"professional-profile","modifiers":["card-img-center"],"confidence":83,"notes":"7 profile eds-cards + 1 Join-our-team promo card; 4-col grid collapsing to 2/1 columns."},
+  {"designSection":"CALL / stats band","edsComponent":"content-block","modifiers":[],"confidence":62,"notes":"Full-width gradient band (1-2.png + 2-2.svg) with white contact card and stats (icons + counters)."},
+  {"designSection":"TESTIMONIALS","edsComponent":"testimonial","modifiers":[],"confidence":86,"notes":"Three eds-testimonial cards with overlapping avatar, quote badge, stars, and prev/next polygon arrows outside the grid."},
+  {"designSection":"BLOG POST","edsComponent":"cards","modifiers":["horizontal-card"],"confidence":78,"notes":"Newsletter banner (1.png bg with circle CTAs) plus two horizontal blog cards; first card active with hover.svg bar and blue border."},
+  {"designSection":"FOOTER","edsComponent":"footer","modifiers":["footer-3-col"],"confidence":92,"notes":"eds-footer with logo/about/social column, Departments, Quick Links, Blog Post columns over layered bg (2.png + 3.svg), plus copyright bar (bg-2.svg)."}
+]}

@@ -1,0 +1,33 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #155267; /* used 79x */
+  --fig-color-secondary: #ffffff; /* used 27x */
+  --fig-color-c-000000: #000000; /* used 14x */
+  --fig-color-c-c5e7f3: #c5e7f3; /* used 5x */
+  --fig-color-c-0f2a33: #0f2a33; /* used 3x */
+  --fig-color-c-8dc0d1: #8dc0d1; /* used 2x */
+  --fig-color-c-383533: #383533; /* used 2x */
+  --fig-color-c-f8f9fa: #f8f9fa; /* used 1x */
+  --fig-color-c-f8f8f8: #f8f8f8; /* used 1x */
+  /* typography */
+  --fig-font-primary: 'Inter', sans-serif;
+  --fig-text-12_0: 12.0px; /* line-height ~16.0px */
+  --fig-text-18_0: 18.0px; /* line-height ~24.0px */
+  --fig-text-24_0: 24.0px; /* line-height ~32.0px */
+  --fig-text-28_0: 28.0px; /* line-height ~28.0px */
+  --fig-text-12_8: 12.8px; /* line-height ~19.9px */
+  --fig-text-14_0: 14.0px; /* line-height ~20.0px */
+  /* spacing scale */
+  --fig-space-10: 10px;
+  --fig-space-23: 23px;
+  --fig-space-28: 28px;
+  --fig-space-195: 195px;
+  /* border radii */
+  --fig-radius-21: 21px;
+  --fig-radius-27: 27px;
+  --fig-radius-28: 28px;
+  /* shadows */
+  --fig-shadow-1: 0.0px 0.7px 2.8px 0.0px #00000029;
+  --fig-shadow-2: 0.0px 2.8px 5.7px 0.0px #00000040;
+}

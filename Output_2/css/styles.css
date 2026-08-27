@@ -1,0 +1,456 @@
+/* ============================================================
+   BioTech landing – EDS + Bootstrap 5.1.3
+   All measurements derived from Figma frame 34:2 (1611.5 x 969.8)
+   ============================================================ */
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: var(--fig-font-primary);
+  color: var(--fig-color-primary);
+}
+
+/* ---------- Page band (Figma frame 34:2) ---------- */
+.page {
+  max-width: 1611.5px;
+  margin-inline: auto;
+  background-color: var(--fig-color-secondary);
+  border-radius: clamp(28px, 3.5vw, 56.2px);
+  padding: 32px 20px;
+  overflow: hidden;
+}
+
+/* ---------- Header (34:3) ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  min-height: 41.7px;
+}
+
+.brand {
+  font-size: var(--fig-text-28_1);
+  line-height: 34px;
+  letter-spacing: -0.8px;
+  font-weight: 400;
+  color: var(--fig-color-primary);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(20px, 2.9vw, 46.9px);
+}
+
+.nav-item {
+  font-size: var(--fig-text-18_7);
+  line-height: 22.7px;
+  letter-spacing: -0.6px;
+  font-weight: 400;
+  color: var(--fig-color-primary);
+  text-decoration: none;
+}
+
+.nav-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 9.4px;
+}
+
+.nav-caret {
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.is-open .nav-caret {
+  transform: rotate(180deg);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.3vw, 37.5px);
+}
+
+/* ---------- Buttons (EDS eds-btn) ---------- */
+.eds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: var(--fig-text-18_7);
+  line-height: 22.7px;
+  letter-spacing: -0.6px;
+  font-weight: 400;
+  text-decoration: none;
+  border: 0;
+  white-space: nowrap;
+}
+
+.btn-pill {
+  border-radius: var(--fig-radius-115);
+}
+
+.btn-header-contact {
+  gap: 9.4px;
+  padding: 9.4px 18.7px;
+  background-color: var(--fig-color-c-f58626);
+  color: var(--fig-color-secondary);
+  border-radius: var(--fig-radius-82);
+}
+
+.btn-header-contact:hover,
+.btn-header-contact:focus {
+  color: var(--fig-color-secondary);
+}
+
+.btn-work {
+  margin-top: 24px;
+  gap: 18.7px;
+  padding: 14.1px 21.1px;
+  border: 2.3px solid var(--fig-color-primary);
+  border-radius: var(--fig-radius-115);
+  background-color: transparent;
+  color: var(--fig-color-primary);
+  width: fit-content;
+}
+
+.btn-work:hover,
+.btn-work:focus {
+  color: var(--fig-color-primary);
+}
+
+.btn-contact {
+  gap: 18.7px;
+  padding: 16.4px 28.1px;
+  background-color: var(--fig-color-c-f58626);
+  color: var(--fig-color-secondary);
+  border-radius: var(--fig-radius-113);
+}
+
+.btn-contact:hover,
+.btn-contact:focus {
+  color: var(--fig-color-secondary);
+}
+
+.link-request {
+  font-size: var(--fig-text-18_7);
+  line-height: 22.7px;
+  letter-spacing: -0.6px;
+  font-weight: 600;
+  color: var(--fig-color-primary);
+  text-decoration: underline;
+}
+
+.link-request:hover,
+.link-request:focus {
+  color: var(--fig-color-primary);
+}
+
+/* ---------- Hero band (34:17) ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+/* ---------- Hero left column (34:18) ---------- */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Heading block (34:20 / 34:21) */
+.hero-heading {
+  position: relative;
+  font-size: clamp(40px, 5.24vw, 84.4px);
+}
+
+.hero-heading h1 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--fig-color-primary);
+  white-space: pre-wrap;
+}
+
+/* Pill image tucked into the heading indent (34:22) – genuine overlay */
+.hero-heading-img {
+  position: absolute;
+  top: 0.166em;
+  left: 0;
+  width: 1.665em;
+  height: 0.694em;
+  object-fit: cover;
+  border-radius: var(--fig-radius-91);
+}
+
+/* CTA row (34:26) */
+.hero-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+}
+
+/* Partners block (34:31) */
+.partners-copy {
+  margin: 0 0 37.5px;
+  font-size: var(--fig-text-18_7);
+  line-height: 22.7px;
+  letter-spacing: -0.6px;
+  font-weight: 600;
+  color: var(--fig-color-primary);
+  white-space: pre-wrap;
+}
+
+.partners-logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+}
+
+.partners-logos img {
+  height: 30.4px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* ---------- Hero right column – cards (34:68) ---------- */
+.hero-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 18.7px;
+  min-width: 0;
+}
+
+.eds-card.card {
+  border: 0;
+  border-radius: var(--fig-radius-38);
+  overflow: hidden;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+}
+
+.eds-card.card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 23.4px;
+  flex: 1;
+}
+
+/* Journey card (34:69) */
+.card-journey {
+  flex: 1 1 100%;
+  min-height: 300px;
+  background-image:
+    linear-gradient(rgba(136, 143, 211, 0.53), rgba(136, 143, 211, 0.53)),
+    url("../assets/images/frame-481607.png");
+}
+
+.card-journey .card-body {
+  padding: 37.5px;
+}
+
+.journey-title {
+  margin: 0;
+  font-size: clamp(32px, 2.8vw, 44.5px);
+  line-height: 1.211;
+  letter-spacing: -1.3px;
+  font-weight: 400;
+  color: var(--fig-color-secondary);
+}
+
+.journey-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 23.4px;
+}
+
+.journey-foot p {
+  margin: 0;
+  max-width: 428.5px;
+  font-size: var(--fig-text-18_7);
+  line-height: 22.7px;
+  letter-spacing: -0.6px;
+  color: var(--fig-color-secondary);
+}
+
+.journey-icon {
+  flex: 0 0 auto;
+  width: 70.3px;
+  height: 70.3px;
+}
+
+/* Small cards (34:75, 34:83) */
+.card-sm {
+  flex: 1 1 260px;
+  min-height: 330px;
+}
+
+.card-sm .card-body {
+  padding: 42.2px;
+}
+
+.card-collaborate {
+  background-image: url("../assets/images/frame-481608.png");
+}
+
+.card-solutions {
+  background-image: url("../assets/images/frame-481609.png");
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Figma layer 34:84 has opacity 0 – kept for spacing, hidden visually */
+.card-top-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-connect {
+  gap: 12px;
+  padding: 9.4px 22px;
+  background-color: var(--fig-color-secondary);
+  color: var(--fig-color-primary);
+  border-radius: var(--fig-radius-96);
+}
+
+.btn-connect:hover,
+.btn-connect:focus {
+  color: var(--fig-color-primary);
+}
+
+.btn-locations {
+  padding: 9.4px 18.7px;
+  background-color: var(--fig-color-secondary);
+  color: var(--fig-color-primary);
+  border-radius: var(--fig-radius-96);
+}
+
+.card-copy h3 {
+  margin: 0 0 28.1px;
+  font-size: var(--fig-text-28_1);
+  line-height: 34px;
+  letter-spacing: -0.8px;
+  font-weight: 500;
+  color: var(--fig-color-secondary);
+}
+
+.card-copy p {
+  margin: 0;
+  font-size: var(--fig-text-14_1);
+  line-height: 17px;
+  letter-spacing: -0.4px;
+  color: var(--fig-color-secondary);
+}
+
+.card-copy .copy-dark {
+  color: var(--fig-color-primary);
+}
+
+/* ============================================================
+   Breakpoints
+   ============================================================ */
+
+@media (min-width: 768px) {
+  .page {
+    padding: 40px 32px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero {
+    flex-direction: row;
+    align-items: stretch;
+    gap: clamp(32px, 5.2vw, 84.4px);
+  }
+
+  .hero-left {
+    flex: 1 1 49%;
+  }
+
+  .hero-right {
+    flex: 1 1 45%;
+  }
+}
+
+/* Exact desktop metrics at the design width and above */
+@media (min-width: 1600px) {
+  .page {
+    padding: 46.9px 56.2px;
+    border-radius: 56.2px;
+  }
+
+  .hero {
+    margin-top: 46.9px;
+    gap: 84.4px;
+    min-height: 787.5px;
+  }
+
+  .hero-left {
+    flex: 0 0 735px;
+    min-height: 787.5px;
+    justify-content: space-between;
+  }
+
+  .hero-top {
+    min-height: 480.4px;
+    justify-content: space-between;
+    gap: 23.4px;
+  }
+
+  /* "How do we work" floats beside the shorter heading line (34:23) */
+  .hero-heading .btn-work {
+    position: absolute;
+    left: 508.7px;
+    top: 185.9px;
+    margin: 0;
+  }
+
+  .partners-logos {
+    width: 100%;
+    max-width: 646.8px;
+    justify-content: space-between;
+    gap: 0 24px;
+  }
+
+  .hero-right {
+    flex: 0 1 679.7px;
+  }
+
+  .card-journey {
+    min-height: 403.1px;
+  }
+
+  .card-sm {
+    flex: 0 0 330.5px;
+    min-height: 365.6px;
+  }
+}

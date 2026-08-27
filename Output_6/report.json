@@ -1,0 +1,553 @@
+{
+  "design": {
+    "name": "HOMEPAGE",
+    "fileKey": "VIBFKV6rZiXNVG3nC3yHRC",
+    "nodeId": "8:39",
+    "source": "REST"
+  },
+  "generatedAt": "2026-08-27T12:14:07.472802+00:00",
+  "finalScore": 86.0,
+  "threshold": 95.0,
+  "pixelMismatchPct": null,
+  "iterations": [
+    {
+      "score": 78.0,
+      "issueCount": 8,
+      "critical": 0,
+      "major": 4,
+      "minor": 4,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 4,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 85.0,
+      "issueCount": 7,
+      "critical": 0,
+      "major": 1,
+      "minor": 6,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 1,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 86.0,
+      "issueCount": 5,
+      "critical": 0,
+      "major": 2,
+      "minor": 3,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": false,
+      "meaningfulImprovement": false,
+      "decision": "rejected-regression",
+      "stagnationCount": 1,
+      "contractViolations": 2,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 86.0,
+      "issueCount": 5,
+      "critical": 0,
+      "major": 1,
+      "minor": 4,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "checkpointed",
+      "stagnationCount": 0,
+      "contractViolations": 1,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    },
+    {
+      "score": 88.0,
+      "issueCount": 4,
+      "critical": 0,
+      "major": 2,
+      "minor": 2,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": false,
+      "meaningfulImprovement": false,
+      "decision": "rejected-regression",
+      "stagnationCount": 1,
+      "contractViolations": 1,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    }
+  ],
+  "status": "best-effort",
+  "accuracy": {
+    "mode": "standard",
+    "targetMismatchPct": 0.0,
+    "diffThreshold": 31,
+    "converged": false,
+    "exact": false,
+    "visualVerified": false,
+    "stable": false,
+    "stopReason": "refinement_model_error",
+    "bestIteration": 4,
+    "viewports": [],
+    "responsiveAudit": [],
+    "geometry": {
+      "layoutPinning": null,
+      "layoutPinningHeadline": null
+    }
+  },
+  "contract": {
+    "passed": false,
+    "violations": [
+      {
+        "severity": "major",
+        "area": "eds/unknown-component",
+        "description": "component-map.json names components that are not in the EDS catalog: none",
+        "fix": "Map each section to a component from the supplied EDS catalog, or drop the mapping."
+      }
+    ]
+  },
+  "componentMap": {
+    "mappings": [
+      {
+        "designSection": "topbar (8:119)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: the supplied EDS catalog contains no matching header component. Built as a custom sticky header inside the mandated <header id=\"eds-header\"> wrapper using Bootstrap layout; logo asset a2, All/BD triggers, search input with orange submit, utility icons via Material Symbols (icon vectors absent from the asset manifest)."
+      },
+      {
+        "designSection": "Hero — Rectangle 69 + Group 10 (17:21/17:27)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no hero/banner component in the supplied EDS catalog. Custom section with the responsive <picture> pattern for asset a11, left #d0d0d0→transparent gradient overlay, Inter title/subtitle and 'Learn More' button; 500px design height reproduced with 160px paddings so content can grow."
+      },
+      {
+        "designSection": "Category pills (8:52..8:65 + 18:xx texts)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no pill/tag component in the supplied EDS catalog. Custom centered pill rows with the exact Figma widths (row1 180/261/160/160, row2 261/189/160/258, row3 180/229/185/175) applied as min-widths at desktop, radius 16, shadow --fig-shadow-3; active pill #ff9a00. Icons via Material Symbols (icon assets absent from manifest)."
+      },
+      {
+        "designSection": "Peace of mind with every international order (22:69..27:361)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no matching card/split component in the supplied EDS catalog. Custom text column (32/38.9 heading, 16/19.4 copy, orange CTA) plus 285x229 image tiles with bottom gradient labels and one #353535ba 'Discover more' overlay; third tile clipped at the right edge as in the design."
+      },
+      {
+        "designSection": "Top Sellers in Books (29:13, 8:77..8:88, 30:xx, 34:xx)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no product-card component in the supplied EDS catalog. Custom 4x2 grid of 235px bordered cards (0.7px #c8c8c8, radius 18), 101x157 covers with --fig-shadow-1, title/writer/'Know more' row, elevated 'active' card with --fig-shadow-4, CSS ribbon badges (badge assets not in manifest) and 'Load More' button."
+      },
+      {
+        "designSection": "Rectangle 29 promo strip (8:68)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no image/banner component in the supplied EDS catalog. Full-bleed 1440x357 image (asset a1) via the responsive <picture> pattern with aspect-ratio to prevent layout shift."
+      },
+      {
+        "designSection": "Explore our Amazing Deals (38:161, 8:76..8:89, 47:xx)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no carousel component in the supplied EDS catalog; Bootstrap 5 carousel (.carousel > .carousel-inner > .carousel-item) used per rule 4 with data-bs prev/next controls. Cards at Figma x=88/402/742/1073 via explicit 29/31/46px inter-card gaps; per-card image metrics (camera top 67, goggle 76, bottle 46, Nike 29 with 320px width bleeding 22px left of the card); strike-through applied only to the trailing RPR dollar value per line 47:62."
+      },
+      {
+        "designSection": "Category collage Group 44 (53:27)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no collage/mosaic component in the supplied EDS catalog. Custom 3-column grid (360 / fluid / 360) of image tiles with #57575700→#1b1b1b bottom gradients, white 16px labels and a #282828b5 'Discover more' overlay tile; min-heights reproduce the design boxes while allowing content growth."
+      },
+      {
+        "designSection": "Footer (53:35..53:92, 8:96..8:112, 53:26)",
+        "edsComponent": "none",
+        "modifiers": [],
+        "confidence": 0,
+        "notes": "Mapping dropped: no footer component in the supplied EDS catalog. Built inside the mandated <footer id=\"eds-footer\"> wrapper: 224x69 inverted logo (footer vectors a73-a75 absent, header asset a2 reused with CSS invert), two centered uppercase country rows, three orange headings, 611x157 message textarea + 392px email/SEND form, © line in #c4d6d2."
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "a1",
+      "nodeId": "8:68",
+      "name": "Rectangle 29",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "057bace163016ff18a58b018c89668acc2cc1191",
+      "w": 1440.0,
+      "h": 357.0,
+      "file": "assets/images/rectangle-29.jpg"
+    },
+    {
+      "id": "a2",
+      "nodeId": "8:16",
+      "name": "Vector",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "9cf2357c84d64e824a44fbb34052a5ffbf03392d",
+      "w": 147.0,
+      "h": 47.0,
+      "file": "assets/images/vector.png"
+    },
+    {
+      "id": "a11",
+      "nodeId": "17:21",
+      "name": "Rectangle 69",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "b2fcc1f94eaffa274169dedf4dc9db7d5b2642b8",
+      "w": 1440.0,
+      "h": 500.0,
+      "file": "assets/images/rectangle-69.jpg"
+    },
+    {
+      "id": "a23",
+      "nodeId": "22:78",
+      "name": "unsplash:2zDw14yCYqk",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ca04ce56167576011163e6c1b1f051a99d5df48a",
+      "w": 296.0,
+      "h": 444.0,
+      "file": "assets/images/unsplash-2zdw14ycyqk.jpg"
+    },
+    {
+      "id": "a24",
+      "nodeId": "22:79",
+      "name": "unsplash:iwd_99qV7Uk",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f78b80e81d9b1fd8ba78f6da13b3fd1780164fa0",
+      "w": 323.0,
+      "h": 323.0,
+      "file": "assets/images/unsplash-iwd-99qv7uk.jpg"
+    },
+    {
+      "id": "a25",
+      "nodeId": "22:88",
+      "name": "unsplash:ZB4eQcNqVUs",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "f89fd0f6ba2ba2456730cff50292662879393563",
+      "w": 360.0,
+      "h": 239.0,
+      "file": "assets/images/unsplash-zb4eqcnqvus.jpg"
+    },
+    {
+      "id": "a26",
+      "nodeId": "22:81",
+      "name": "unsplash:giP0e750Dr8",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "e5b044d14a5bf3dfba6452f6acb17b2ed3e68936",
+      "w": 301.0,
+      "h": 451.0,
+      "file": "assets/images/unsplash-gip0e750dr8.jpg"
+    },
+    {
+      "id": "a29",
+      "nodeId": "30:53",
+      "name": "image 9",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "8e29823283aff65914509588aca03f0edd3cdd81",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-9.png"
+    },
+    {
+      "id": "a30",
+      "nodeId": "30:43",
+      "name": "image 9",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "95f4b60da46ad8d9724c808f423991baaf6ff693",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-9-2.png"
+    },
+    {
+      "id": "a31",
+      "nodeId": "30:51",
+      "name": "image 13",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "8e7617252a9a601242b7540fe74fa26fd46ce17f",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-13.png"
+    },
+    {
+      "id": "a32",
+      "nodeId": "30:49",
+      "name": "image 12",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "ad8049cc8e811f29e54195c6b9db7f77c09a0531",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-12.png"
+    },
+    {
+      "id": "a33",
+      "nodeId": "30:33",
+      "name": "image 4",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "4f3d7f8a4bb9a84e5c10db1a8c49f62c5108caf9",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-4.png"
+    },
+    {
+      "id": "a34",
+      "nodeId": "30:47",
+      "name": "image 11",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "27cf0f94af5da38ad9c36030537c7af6d67927d6",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-11.png"
+    },
+    {
+      "id": "a35",
+      "nodeId": "30:35",
+      "name": "image 5",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "58966c677dafa80060a4e116eb185e6121a7dc76",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-5.png"
+    },
+    {
+      "id": "a36",
+      "nodeId": "30:45",
+      "name": "image 10",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "1045413607f7e841cdf1e8cc04cc26ce62fff9f3",
+      "w": 101.0,
+      "h": 157.0,
+      "file": "assets/images/image-10.png"
+    },
+    {
+      "id": "a50",
+      "nodeId": "43:9",
+      "name": "image 14",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "29edd48c647e17181f59297715375cf246d8c4b5",
+      "w": 320.0,
+      "h": 180.0,
+      "file": "assets/images/image-14.png"
+    },
+    {
+      "id": "a52",
+      "nodeId": "46:17",
+      "name": "image 18",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "6e687fadc1643b0877dc1c8957c26e6955d858bd",
+      "w": 186.0,
+      "h": 186.0,
+      "file": "assets/images/image-18.png"
+    },
+    {
+      "id": "a53",
+      "nodeId": "46:21",
+      "name": "image 19",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "d0de02847774ce06544ccac13d0ed66341363d4c",
+      "w": 226.0,
+      "h": 119.0,
+      "file": "assets/images/image-19.png"
+    },
+    {
+      "id": "a56",
+      "nodeId": "47:26",
+      "name": "image 20",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "afd735e216d5b07ca7d6abbbffb5691328625155",
+      "w": 158.2,
+      "h": 160.0,
+      "file": "assets/images/image-20.png"
+    },
+    {
+      "id": "a64",
+      "nodeId": "16:13",
+      "name": "image 1",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "dd1fc955b22734f0f08f1bcce0e61f9b20e505f3",
+      "w": 380.0,
+      "h": 402.0,
+      "file": "assets/images/image-1.png"
+    },
+    {
+      "id": "a65",
+      "nodeId": "47:76",
+      "name": "unsplash:eCktzGjC-iU",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "33a446aad7aa21615c8bd9e79e4c793670ae8193",
+      "w": 711.0,
+      "h": 511.4,
+      "file": "assets/images/unsplash-ecktzgjc-iu.jpg"
+    },
+    {
+      "id": "a66",
+      "nodeId": "47:75",
+      "name": "unsplash:X6QffKLwyoQ",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "955da303a8b5abcb4124bcbb74274ab3e861c523",
+      "w": 540.0,
+      "h": 360.0,
+      "file": "assets/images/unsplash-x6qffklwyoq.jpg"
+    },
+    {
+      "id": "a67",
+      "nodeId": "47:79",
+      "name": "unsplash:ISg37AI2A-s",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "97e93399b324054eb9dc70b285b06623f0e6fbad",
+      "w": 451.0,
+      "h": 301.0,
+      "file": "assets/images/unsplash-isg37ai2a-s.jpg"
+    },
+    {
+      "id": "a68",
+      "nodeId": "22:77",
+      "name": "unsplash:f2Bi-VBs71M",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "7d5562ee9b0ad338d7fc62ba753155e8fd07d43f",
+      "w": 429.0,
+      "h": 286.0,
+      "file": "assets/images/unsplash-f2bi-vbs71m.jpg"
+    },
+    {
+      "id": "a69",
+      "nodeId": "47:77",
+      "name": "unsplash:D4jRahaUaIc",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "df5566b49b6d7f3c12c4fcd45de690a71b05227f",
+      "w": 555.0,
+      "h": 694.0,
+      "file": "assets/images/unsplash-d4jrahauaic.jpg"
+    },
+    {
+      "id": "a70",
+      "nodeId": "47:74",
+      "name": "unsplash:erUC4fTtCuo",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "e7ac0812054d77c05dbfb6f4a9fb76c7ec6695e8",
+      "w": 525.0,
+      "h": 350.0,
+      "file": "assets/images/unsplash-eruc4fttcuo.jpg"
+    },
+    {
+      "id": "a71",
+      "nodeId": "47:80",
+      "name": "unsplash:rHMyYDmZq2A",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "2b4fe88c7b4d74879eb4fe82b6b66d1424446c51",
+      "w": 524.0,
+      "h": 349.0,
+      "file": "assets/images/unsplash-rhmyydmzq2a.jpg"
+    }
+  ],
+  "warnings": [
+    "https://mcp.figma.com/mcp requires Figma OAuth through a supported MCP host and cannot use FIGMA_TOKEN directly. Set FIGMA_MCP_URL=http://127.0.0.1:3845/mcp after enabling Figma Desktop MCP, or set FIGMA_SOURCE=rest. Continuing with REST.",
+    "Reference screenshot unavailable for 1440px: Figma REST /v1/images/VIBFKV6rZiXNVG3nC3yHRC returned 429: Rate limit exceeded",
+    "eds-native.css was not found; generated styles.css must carry complete component styling.",
+    "Refinement model failed; restored the best measured candidate: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'You have reached your specified workspace API usage limits. You will regain access on 2026-09-01 at 00:00 UTC.'}, 'request_id': 'req_011CeTEYz94g2tZih65LWiXW'}",
+    "1 output-contract violation(s) remain in the delivered files: eds/unknown-component"
+  ],
+  "remainingIssues": [
+    {
+      "severity": "major",
+      "area": "eds/unknown-component",
+      "description": "component-map.json names components that are not in the EDS catalog: none",
+      "fix": "Map each section to a component from the supplied EDS catalog, or drop the mapping."
+    },
+    {
+      "severity": "minor",
+      "area": "Amazing Deals — water bottle card (8:84)",
+      "description": "The bottle image (image-18, 186×186) is horizontally centered in the 285px card (left ≈ 49.5px), but in Figma the image sits at x=780 within the card at x=742, i.e. 38px from the card's left edge — an 11.5px horizontal offset.",
+      "fix": "In the ≥1200px block, change `.amz-deal-card--bottle .deal-img` to `justify-content: flex-start` and add `padding-left: 38px` (or `margin-left: 38px` on the img) so the image left edge sits 38px from the card edge."
+    },
+    {
+      "severity": "minor",
+      "area": "Category pills — rows 2 and 3",
+      "description": "Rows are centered with a uniform 16px gap, but Figma row 2 uses a 27px gap between 'pC & video games' and 'electronics' (x: 497→524) and starts at x=236 (generated ≈ x=262, 26px off); row 3 uses a 23px gap between 'Home & garden' and 'best sellers' (x: 740→763). Row 1 matches exactly.",
+      "fix": "At ≥1200px add per-row gap overrides: `.pill-row:nth-of-type(2) .amz-pill:nth-child(2) { margin-left: 11px; }` (27px total) and `.pill-row:nth-of-type(3) .amz-pill:nth-child(3) { margin-left: 7px; }` (23px total) so row 2 spans 236→1163 as in Figma."
+    },
+    {
+      "severity": "minor",
+      "area": "Explore collage — bottom gradients (51:12, 51:13)",
+      "description": "All `.explore-grad` overlays use `#57575700 0% → #1b1b1b 80%`, but Figma specifies the mid ('Gaming Accesories', 51:12) and right ('Outdoor Tools', 51:13) bottom tiles with the #1b1b1b stop at 60%, producing a stronger scrim than currently rendered on those two tiles.",
+      "fix": "Add a modifier (e.g. `.explore-card--showcase .explore-grad, .explore-col:last-child .explore-card--compact .explore-grad { background: linear-gradient(180deg, var(--fig-color-c-57575700) 0%, var(--fig-color-c-1b1b1b) 60%); }`)."
+    },
+    {
+      "severity": "minor",
+      "area": "Amazing Deals — product ground shadows (46:24)",
+      "description": "The elliptical ground shadow under the featured gaming-goggle image is omitted. Unlike the other shadow ellipses (raster assets missing from the manifest), 46:24 is fully specified in CSS-reproducible terms: 177.4×18.5 ellipse at y≈3069 (below the image), gradient #1d1d1dd6 0% → #6161617a 90% → #1d1d1d00 100%, blur 12.8px.",
+      "fix": "Add a ::after pseudo-element on `.amz-deal-card--featured .deal-img` (width 177px, height 19px, border-radius 50%, background linear-gradient(90deg, var(--fig-color-c-1d1d1dd6) 0%, var(--fig-color-c-6161617a) 90%, var(--fig-color-c-1d1d1d00) 100%), filter: blur(12.8px)) positioned ~14px below the image."
+    }
+  ]
+}

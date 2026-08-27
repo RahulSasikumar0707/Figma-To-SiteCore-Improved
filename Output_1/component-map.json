@@ -1,0 +1,60 @@
+{
+  "mappings": [
+    {
+      "designSection": "Cover intro — Portfolio Template / line / Export your designs to HTML code / logos (701:747, 701:731, 701:748, 701:732)",
+      "edsComponent": "content-block",
+      "modifiers": ["cover-intro"],
+      "confidence": 0.6,
+      "notes": "Text-only 1-column content block on the dark canvas; typography driven by Figma tokens, fluid clamp() below the design width."
+    },
+    {
+      "designSection": "Header Section (701:728)",
+      "edsComponent": "cards",
+      "modifiers": ["horizontal-card", "card-img-right", "hero-card"],
+      "confidence": 0.85,
+      "notes": "Canonical eds-card with card-body + card-img; row auto-layout (gap 43, padding 26/75) mapped to flex. Contact CTA uses the buttons component (eds-btn gs-btn-md gs-btn-primary)."
+    },
+    {
+      "designSection": "Gallery 1281 (701:727)",
+      "edsComponent": "cards",
+      "modifiers": ["gallery-panel-sm", "gallery-item"],
+      "confidence": 0.8,
+      "notes": "White panel with centred heading and a 3x2 wrap of eds-card items (card-img + card-body). Fixed 160px card width only at the design breakpoint; fluid below."
+    },
+    {
+      "designSection": "Skills Section — vertical cards (701:729)",
+      "edsComponent": "cards",
+      "modifiers": ["card-img-center", "skills-card-v"],
+      "confidence": 0.85,
+      "notes": "Three centred icon cards, column auto-layout (gap 20, padding 31/20) reproduced with flex; cards grow equally per spec grow:1."
+    },
+    {
+      "designSection": "Skills Section — horizontal cards (701:730)",
+      "edsComponent": "cards",
+      "modifiers": ["horizontal-card", "skills-card-h"],
+      "confidence": 0.85,
+      "notes": "2x2 grid of horizontal eds-cards (icon left, title/description right), row auto-layout gap 20."
+    },
+    {
+      "designSection": "Gallery Section (701:749)",
+      "edsComponent": "cards",
+      "modifiers": ["gallery-panel-lg", "gallery-item"],
+      "confidence": 0.85,
+      "notes": "Auto-layout gallery: heading + 3x2 card wrap (column gap 12, row gap 24); images 190x159 with aspect-ratio + object-fit cover."
+    },
+    {
+      "designSection": "Contact button (I701:728;505:655)",
+      "edsComponent": "buttons",
+      "modifiers": ["gs-btn-md", "gs-btn-primary", "hero-btn"],
+      "confidence": 0.9,
+      "notes": "eds-btn with link-text span; padding 15/40, #2d2d2d fill, white 12.6/19 Epilogue 600 label."
+    },
+    {
+      "designSection": "Cover frame (701:726)",
+      "edsComponent": "eds-layouts",
+      "modifiers": ["cover", "cover-canvas"],
+      "confidence": 0.7,
+      "notes": "Figma frame clips:true — the right column intentionally bleeds past the 1600x960 canvas. Clipping is reproduced only at >=1560px (matching the design artboard); below that the layout flows fully with wrapping columns and auto height."
+    }
+  ]
+}

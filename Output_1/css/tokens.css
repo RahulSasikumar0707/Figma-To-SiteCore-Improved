@@ -1,0 +1,31 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #2d2d2d; /* used 87x */
+  --fig-color-secondary: #ffffff; /* used 18x */
+  --fig-color-c-3b3b3b: #3b3b3b; /* used 1x */
+  /* typography */
+  --fig-font-primary: 'Epilogue', sans-serif;
+  --fig-text-8_2: 8.2px; /* line-height ~13.0px */
+  --fig-text-9_7: 9.7px; /* line-height ~14.5px */
+  --fig-text-13_0: 13.0px; /* line-height ~20.3px */
+  --fig-text-12_6: 12.6px; /* line-height ~18.9px */
+  --fig-text-15_5: 15.5px; /* line-height ~20.3px */
+  --fig-text-42_8: 42.8px; /* line-height ~43.9px */
+  --fig-text-10_7: 10.7px; /* line-height ~17.0px */
+  --fig-text-91_5: 91.5px; /* line-height ~102.7px */
+  --fig-text-54_1: 54.1px; /* line-height ~72.7px */
+  --fig-text-15_4: 15.4px; /* line-height ~20.3px */
+  /* spacing scale */
+  --fig-space-4: 4px;
+  --fig-space-6: 6px;
+  --fig-space-12: 12px;
+  --fig-space-15: 15px;
+  --fig-space-20: 20px;
+  --fig-space-26: 26px;
+  --fig-space-30: 30px;
+  --fig-space-31: 31px;
+  --fig-space-40: 40px;
+  --fig-space-43: 43px;
+  --fig-space-75: 75px;
+}

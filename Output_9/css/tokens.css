@@ -1,0 +1,53 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #fc7c05; /* used 62x */
+  --fig-color-secondary: #181818; /* used 56x */
+  --fig-color-c-181818b2: #181818b2; /* used 26x */
+  --fig-color-c-00000080: #00000080; /* used 20x */
+  --fig-color-c-d9d9d9: #d9d9d9; /* used 15x */
+  --fig-color-c-000000b2: #000000b2; /* used 8x */
+  --fig-color-c-ffffff: #ffffff; /* used 7x */
+  --fig-color-c-181818ab: #181818ab; /* used 4x */
+  --fig-color-c-5e549b: #5e549b; /* used 4x */
+  --fig-color-c-18181842: #18181842; /* used 3x */
+  --fig-color-c-18181880: #18181880; /* used 2x */
+  --fig-color-c-fff6f6: #fff6f6; /* used 1x */
+  --fig-color-c-d9d9d9b2: #d9d9d9b2; /* used 1x */
+  --fig-color-c-fc7c0552: #fc7c0552; /* used 1x */
+  --fig-color-c-d9d9d95e: #d9d9d95e; /* used 1x */
+  /* typography */
+  --fig-font-primary: 'Sora', sans-serif;
+  --fig-font-poppins: 'Poppins', sans-serif;
+  --fig-text-20_0: 20.0px; /* line-height ~25.2px */
+  --fig-text-18_0: 18.0px; /* line-height ~22.7px */
+  --fig-text-40_0: 40.0px; /* line-height ~50.4px */
+  --fig-text-22_0: 22.0px; /* line-height ~27.7px */
+  --fig-text-26_0: 26.0px; /* line-height ~32.8px */
+  --fig-text-36_0: 36.0px; /* line-height ~45.4px */
+  --fig-text-16_0: 16.0px; /* line-height ~20.2px */
+  --fig-text-25_0: 25.0px; /* line-height ~31.5px */
+  --fig-text-24_0: 24.0px; /* line-height ~30.2px */
+  --fig-text-48_0: 48.0px; /* line-height ~60.5px */
+  --fig-text-30_0: 30.0px; /* line-height ~37.8px */
+  --fig-text-52_0: 52.0px; /* line-height ~65.5px */
+  --fig-text-32_0: 32.0px; /* line-height ~40.3px */
+  /* spacing scale */
+  --fig-space-7: 7px;
+  --fig-space-10: 10px;
+  --fig-space-12: 12px;
+  --fig-space-14: 14px;
+  --fig-space-15: 15px;
+  --fig-space-18: 18px;
+  --fig-space-20: 20px;
+  --fig-space-24: 24px;
+  --fig-space-25: 25px;
+  --fig-space-40: 40px;
+  --fig-space-42: 42px;
+  --fig-space-50: 50px;
+  --fig-space-131: 131px;
+  --fig-space-236: 236px;
+  /* border radii */
+  --fig-radius-10: 10px;
+  --fig-radius-15: 15px;
+}

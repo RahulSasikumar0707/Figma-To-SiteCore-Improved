@@ -1,0 +1,39 @@
+/* Design tokens extracted from Figma — single source of truth for generated CSS. */
+:root {
+  /* colors (ordered by frequency in the design) */
+  --fig-color-primary: #ffffff; /* used 83x */
+  --fig-color-secondary: #0a2e72; /* used 64x */
+  --fig-color-c-0088ff: #0088ff; /* used 40x */
+  --fig-color-c-00000000: #00000000; /* used 17x */
+  --fig-color-c-454d5d: #454d5d; /* used 14x */
+  --fig-color-c-ff9000: #ff9000; /* used 10x */
+  --fig-color-c-5e6f8e: #5e6f8e; /* used 8x */
+  --fig-color-c-f9f9f9: #f9f9f9; /* used 4x */
+  --fig-color-c-00ffc0: #00ffc0; /* used 2x */
+  /* typography */
+  --fig-font-primary: 'Ubuntu', sans-serif;
+  --fig-font-icofont: 'IcoFont', sans-serif;
+  --fig-font-roboto: 'Roboto', sans-serif;
+  --fig-text-25_0: 25.0px; /* line-height ~55.0px */
+  --fig-text-15_0: 15.0px; /* line-height ~55.0px */
+  --fig-text-28_0: 28.0px; /* line-height ~55.0px */
+  --fig-text-16_0: 16.0px; /* line-height ~18.4px */
+  --fig-text-26_0: 26.0px; /* line-height ~28.0px */
+  --fig-text--16_0: -16.0px; /* line-height ~-25.0px */
+  --fig-text-45_0: 45.0px; /* line-height ~56.0px */
+  --fig-text-19_0: 19.0px; /* line-height ~26.0px */
+  --fig-text-14_0: 14.0px; /* line-height ~25.0px */
+  --fig-text-20_0: 20.0px; /* line-height ~55.0px */
+  --fig-text-42_0: 42.0px; /* line-height ~55.0px */
+  --fig-text-30_0: 30.0px; /* line-height ~34.5px */
+  --fig-text-21_0: 21.0px; /* line-height ~30.0px */
+  --fig-text-35_0: 35.0px; /* line-height ~38.0px */
+  --fig-text-17_0: 17.0px; /* line-height ~38.0px */
+  --fig-text-55_0: 55.0px; /* line-height ~38.0px */
+  --fig-text-29_0: 29.0px; /* line-height ~56.0px */
+  --fig-text-24_0: 24.0px; /* line-height ~40.0px */
+  --fig-text-18_0: 18.0px; /* line-height ~55.0px */
+  --fig-text-22_0: 22.0px; /* line-height ~28.0px */
+  --fig-text-70_0: 70.0px; /* line-height ~77.0px */
+  /* spacing scale */
+}

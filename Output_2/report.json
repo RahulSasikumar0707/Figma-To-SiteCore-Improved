@@ -1,0 +1,277 @@
+{
+  "design": {
+    "name": "v1",
+    "fileKey": "UUbf1MaoqHcRVdNephQ8Hs",
+    "nodeId": "34:2",
+    "source": "REST"
+  },
+  "generatedAt": "2026-08-26T15:13:05.148799+00:00",
+  "finalScore": 96.0,
+  "threshold": 95.0,
+  "pixelMismatchPct": null,
+  "iterations": [
+    {
+      "score": 96.0,
+      "issueCount": 0,
+      "critical": 0,
+      "major": 0,
+      "minor": 0,
+      "pixelMismatchPct": null,
+      "weightedPixelMismatchPct": null,
+      "mismatchedPixels": null,
+      "visualVerified": false,
+      "dimensionsMatch": true,
+      "responsiveViolations": 0,
+      "stable": false,
+      "improved": true,
+      "meaningfulImprovement": true,
+      "decision": "accepted",
+      "stagnationCount": 0,
+      "contractViolations": 0,
+      "documentHeightErrorPx": null,
+      "viewports": []
+    }
+  ],
+  "status": "accepted",
+  "accuracy": {
+    "mode": "standard",
+    "targetMismatchPct": 0.0,
+    "diffThreshold": 31,
+    "converged": true,
+    "exact": false,
+    "visualVerified": false,
+    "stable": false,
+    "stopReason": "target_met",
+    "bestIteration": 1,
+    "viewports": [],
+    "responsiveAudit": [],
+    "geometry": {
+      "layoutPinning": null,
+      "layoutPinningHeadline": null
+    }
+  },
+  "contract": {
+    "passed": true,
+    "violations": []
+  },
+  "componentMap": {
+    "mappings": [
+      {
+        "designSection": "Frame 481622 (top bar, 34:3)",
+        "edsComponent": "header",
+        "modifiers": [
+          "site-header"
+        ],
+        "confidence": 0.9,
+        "notes": "Brand text, inline nav with dropdown caret, Join link and Contact Us pill CTA mapped to eds-header with eds-link/eds-btn children."
+      },
+      {
+        "designSection": "Frame 481618 (hero left, 34:18)",
+        "edsComponent": "hero-banner",
+        "modifiers": [
+          "hero-left",
+          "hero-top",
+          "hero-heading"
+        ],
+        "confidence": 0.8,
+        "notes": "Large display heading with overlay pill image and floating 'How do we work' button, CTA row, and partner-logo strip; heights reached via space-between and min-heights at >=1600px only."
+      },
+      {
+        "designSection": "Frame 481612 (hero right cards, 34:68)",
+        "edsComponent": "cards",
+        "modifiers": [
+          "card-journey",
+          "card-sm",
+          "card-collaborate",
+          "card-solutions"
+        ],
+        "confidence": 0.85,
+        "notes": "Three eds-card/card blocks with background images, rounded 38px corners, card-body flex column space-between. Third card's top row reproduced with opacity 0 as in Figma (34:84)."
+      },
+      {
+        "designSection": "CTAs (34:15, 34:23, 34:27, 34:77)",
+        "edsComponent": "buttons",
+        "modifiers": [
+          "btn-pill",
+          "btn-header-contact",
+          "btn-work",
+          "btn-contact",
+          "btn-connect"
+        ],
+        "confidence": 0.9,
+        "notes": "All pill CTAs use canonical eds-btn + link-text structure with gs-btn-* variants; outline variant for 'How do we work'."
+      },
+      {
+        "designSection": "Partner logos strip (34:33)",
+        "edsComponent": "content-block",
+        "modifiers": [
+          "partners-logos"
+        ],
+        "confidence": 0.6,
+        "notes": "Simple media row inside the hero-banner left column; space-between at design width, wraps fluidly below."
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "a2",
+      "nodeId": "34:22",
+      "name": "Rectangle 20",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "175d05817cb6542aa812ba724a50049e2268a85d",
+      "w": 140.5,
+      "h": 58.6,
+      "file": "assets/images/rectangle-20.png"
+    },
+    {
+      "id": "a9",
+      "nodeId": "34:69",
+      "name": "Frame 481607",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "a3c3df474e99b4a134b419144978079a802793ab",
+      "w": 679.7,
+      "h": 403.1,
+      "file": "assets/images/frame-481607.png"
+    },
+    {
+      "id": "a11",
+      "nodeId": "34:75",
+      "name": "Frame 481608",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "3ca2a94e0b7de08046574b57bb0b4d1abe2a090a",
+      "w": 330.5,
+      "h": 365.6,
+      "file": "assets/images/frame-481608.png"
+    },
+    {
+      "id": "a13",
+      "nodeId": "34:83",
+      "name": "Frame 481609",
+      "kind": "image",
+      "export": "imageRef",
+      "imageRef": "acf3e7d410f593a45f93be72e1bd208d16dc5f2b",
+      "w": 330.5,
+      "h": 365.6,
+      "file": "assets/images/frame-481609.png"
+    },
+    {
+      "id": "a1",
+      "nodeId": "34:10",
+      "name": "Frame 481626",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 11.2,
+      "h": 10.3,
+      "file": "assets/icons/frame-481626.svg"
+    },
+    {
+      "id": "a3",
+      "nodeId": "34:24",
+      "name": "Polygon 8",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 19.7,
+      "h": 19.7,
+      "file": "assets/icons/polygon-8.svg"
+    },
+    {
+      "id": "a4",
+      "nodeId": "34:29",
+      "name": "Arrow 3",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 11.0,
+      "h": 11.0,
+      "file": "assets/icons/arrow-3.svg"
+    },
+    {
+      "id": "a5",
+      "nodeId": "34:35",
+      "name": "logo-34",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 115.7,
+      "h": 30.4,
+      "file": "assets/icons/logo-34.svg"
+    },
+    {
+      "id": "a6",
+      "nodeId": "34:49",
+      "name": "Frame 481614",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 75.1,
+      "h": 30.4,
+      "file": "assets/icons/frame-481614.svg"
+    },
+    {
+      "id": "a7",
+      "nodeId": "34:53",
+      "name": "logo-50",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 117.2,
+      "h": 30.5,
+      "file": "assets/icons/logo-50.svg"
+    },
+    {
+      "id": "a8",
+      "nodeId": "34:66",
+      "name": "logo-11",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 127.9,
+      "h": 30.4,
+      "file": "assets/icons/logo-11.svg"
+    },
+    {
+      "id": "a10",
+      "nodeId": "34:73",
+      "name": "Frame 481609",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 70.3,
+      "h": 70.3,
+      "file": "assets/icons/frame-481609.svg"
+    },
+    {
+      "id": "a12",
+      "nodeId": "34:79",
+      "name": "Arrow 4",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 12.0,
+      "h": 12.0,
+      "file": "assets/icons/arrow-4.svg"
+    },
+    {
+      "id": "a14",
+      "nodeId": "34:87",
+      "name": "Frame 481609",
+      "kind": "icon",
+      "export": "svg",
+      "imageRef": null,
+      "w": 46.9,
+      "h": 46.9,
+      "file": "assets/images/frame-481609-2.png"
+    }
+  ],
+  "warnings": [
+    "https://mcp.figma.com/mcp requires Figma OAuth through a supported MCP host and cannot use FIGMA_TOKEN directly. Set FIGMA_MCP_URL=http://127.0.0.1:3845/mcp after enabling Figma Desktop MCP, or set FIGMA_SOURCE=rest. Continuing with REST.",
+    "Reference screenshot unavailable for 1612px: Figma REST /v1/images/UUbf1MaoqHcRVdNephQ8Hs returned 429: Rate limit exceeded",
+    "eds-native.css was not found; generated styles.css must carry complete component styling."
+  ],
+  "remainingIssues": []
+}

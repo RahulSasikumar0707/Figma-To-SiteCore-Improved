@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicust — Medical And Health</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Material+Symbols+Outlined&family=Material+Symbols+Rounded&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="css/tokens.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+<div id="eds-wrapper">
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="eds-header">
+    <div class="component eds-header header-variant-one sticky-header">
+      <!-- Header top -->
+      <div class="component secondary-navigation topbar">
+        <div class="mc-container topbar-inner">
+          <div class="tb-item"><span class="msr" aria-hidden="true">location_on</span><span>9470 Riverview, Zion 60099</span></div>
+          <div class="tb-right">
+            <div class="tb-item"><span class="msr" aria-hidden="true">mail</span><span>medicust@gmail.com</span></div>
+            <div class="tb-item"><span class="msr" aria-hidden="true">headset_mic</span><span>+88 564 867 4687</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Menubar -->
+      <nav class="component primary-navigation navbar-blue navbar navbar-expand-lg">
+        <div class="nav-decor d-none d-xl-block" aria-hidden="true">
+          <img src="assets/images/2-2.png" alt="" class="decor-2" width="612" height="75">
+          <img src="assets/images/1-3.png" alt="" class="decor-1" width="612" height="75">
+        </div>
+        <div class="mc-container nav-inner">
+          <a class="brand" href="#">
+            <img src="assets/images/heartbeat-2.png" alt="Medicust heartbeat logo" width="62" height="54">
+            <span>Medicust</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavigation" aria-controls="primaryNavigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="msr">menu</span>
+          </button>
+          <div class="collapse navbar-collapse" id="primaryNavigation">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Department</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <a class="btn-appoint eds-btn" href="#">Get Appoinment</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="eds-main">
+
+    <!-- HERO AREA -->
+    <section class="component eds-hero-banner sec-hero">
+      <div class="hero-media">
+        <picture>
+          <source media="(min-width:992px)" srcset="assets/images/image-here-8.png">
+          <source media="(min-width:768px)" srcset="assets/images/image-here-8.png">
+          <source media="(min-width:0px)" srcset="assets/images/image-here-8.png">
+          <img src="assets/images/image-here-8.png" alt="Friendly care provider" class="hero-img" width="1920" height="1050">
+        </picture>
+        <img src="assets/images/shape.png" alt="" class="hero-shape" width="884" height="768" aria-hidden="true">
+      </div>
+      <div class="mc-container hero-banner-content">
+        <p class="hero-eyebrow">Medical And Health</p>
+        <h1 class="hero-title">A professional and friendly care provider.</h1>
+        <p class="hero-sub">Excepteur sint occaecat cupidatat non proident sunt officia</p>
+        <div class="cta-wrapper">
+          <a class="eds-btn btn-all-doctors" href="#"><span class="link-text">All Doctors</span><span class="msr" aria-hidden="true">arrow_forward</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="component sec-cta">
+      <div class="mc-container cta-inner">
+        <h2 class="cta-title">Need a doctor for checkup?<br>Call for an emergency services!</h2>
+        <a class="cta-call" href="tel:+00568468">
+          <span class="cta-ic"><img src="assets/icons/ellipse-1.svg" alt="" width="46" height="46"><span class="msr" aria-hidden="true">call</span></span>
+          <img class="cta-support" src="assets/images/support.png" alt="support" width="101" height="113">
+          <span class="cta-text">
+            <strong>Call Us : +00 568 468</strong>
+            <small>For an appoinment</small>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICES / DEPARTMENTS -->
+    <section class="component sec-services">
+      <div class="mc-container">
+        <div class="section-title">
+          <h2 class="st-h">Our All Department</h2>
+          <p class="st-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+        </div>
+        <div class="row g-0 dept-grid">
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology-2.svg" alt="Cardiology icon" width="50" height="46"></div>
+            <h3>Cardiology</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card active">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology4.svg" alt="Ophthalmology icon" width="46" height="32"></div>
+            <h3>Ophthalmology</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology11.svg" alt="Gynecology icon" width="38" height="38"></div>
+            <h3>Gynecology</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology21.svg" alt="Dental Care icon" width="34" height="46"></div>
+            <h3>Dental Care</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/images/cardiology3.png" alt="Plastic Surgery icon" width="46" height="46"></div>
+            <h3>Plastic Surgery</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology.svg" alt="Pediatrics icon" width="46" height="46"></div>
+            <h3>Pediatrics</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology1.svg" alt="Gastrology icon" width="38" height="46"></div>
+            <h3>Gastrology</h3>
+          </div></div>
+          <div class="col-6 col-lg-3"><div class="eds-card card dept-card">
+            <div class="dept-icon"><img class="dept-ring" src="assets/vectors/ellipse-2.svg" alt="" width="123" height="123"><img class="dept-glyph" src="assets/icons/cardiology2.svg" alt="Neurology icon" width="40" height="46"></div>
+            <h3>Neurology</h3>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="component sec-video">
+      <div class="mc-container">
+        <div class="component eds-video video-banner">
+          <div class="vb-text">
+            <p class="vb-eyebrow">Manage your health care</p>
+            <h2 class="vb-title">Trust us to be there to help all and make things weel again.</h2>
+            <a class="eds-btn btn-all-doctors vb-btn" href="#"><span class="link-text">All Doctors</span><span class="msr" aria-hidden="true">arrow_forward</span></a>
+          </div>
+          <div class="vb-media">
+            <img src="assets/images/image-here-7.png" alt="Doctors reviewing charts" width="631" height="478">
+          </div>
+          <button class="vb-play" type="button" aria-label="Play video">
+            <img class="ring1" src="assets/vectors/ellipse-3-copy-2.svg" alt="" width="138" height="138">
+            <img class="ring2" src="assets/vectors/ellipse-3-copy.svg" alt="" width="122" height="122">
+            <img class="play-ic" src="assets/icons/icon.svg" alt="" width="103" height="103">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM MEMBERS -->
+    <section class="component sec-team">
+      <div class="mc-container">
+        <div class="section-title">
+          <h2 class="st-h">Professional Care Provider</h2>
+          <p class="st-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+        </div>
+        <div class="row team-grid">
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/doctor-at-hospital-4l8ep6x.png" alt="Chriss Taylor" width="626" height="418"></div>
+            <h3>Chriss Taylor</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card active">
+            <div class="card-img"><img src="assets/images/image-here-6.png" alt="Jonshon Aliven" width="405" height="270"></div>
+            <h3>Jonshon Aliven</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/image-here-5.png" alt="Trikien Munaska" width="507" height="339"></div>
+            <h3>Trikien Munaska</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/image-here-4.png" alt="Khabian Jerry" width="550" height="368"></div>
+            <h3>Khabian Jerry</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/image-here-3.png" alt="Chriss Taylor" width="490" height="326"></div>
+            <h3>Chriss Taylor</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/image-here-2.png" alt="Jonshon Aliven" width="346" height="231"></div>
+            <h3>Jonshon Aliven</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card team-card">
+            <div class="card-img"><img src="assets/images/image-here.png" alt="Trikien Munaska" width="683" height="493"></div>
+            <h3>Trikien Munaska</h3><p class="role">Internal Medicine</p>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-3"><div class="eds-card card join-card">
+            <h3>Join our team</h3>
+            <p>Lorem ipsum dolor amet consectetur adipiscing elit sed eiusmod tempor</p>
+            <a class="join-btn" href="#" aria-label="Join our team"><img src="assets/icons/bg-10.svg" alt="" width="58" height="58"><span class="msr" aria-hidden="true">add</span></a>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL / STATS -->
+    <section class="component sec-call">
+      <div class="mc-container call-inner">
+        <div class="call-card">
+          <h2>We always ready for a challenge.</h2>
+          <div class="call-row">
+            <span class="call-ic"><img src="assets/icons/ellipse-4.svg" alt="" width="64" height="64"><span class="msr" aria-hidden="true">headset_mic</span></span>
+            <a class="call-num" href="tel:+0056846746">+00 568 467 46</a>
+          </div>
+          <div class="call-row email">
+            <a class="call-mail" href="mailto:medicust@gmail.com">medicust@gmail.com</a>
+            <span class="call-ic orange"><span class="msr" aria-hidden="true">mail</span></span>
+          </div>
+        </div>
+        <div class="call-content">
+          <h3>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qu nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+          <div class="stats">
+            <div class="stat"><span class="msr" aria-hidden="true">groups</span><div><strong>8648+</strong><span class="lbl">Satisfied Clients</span></div></div>
+            <div class="stat"><span class="msr" aria-hidden="true">emoji_events</span><div><strong>57658+</strong><span class="lbl">World Awards</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="component eds-testimonial sec-testimonials">
+      <div class="mc-container">
+        <div class="section-title">
+          <h2 class="st-h">Patient Testimonials</h2>
+          <p class="st-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+        </div>
+        <div class="row t-grid">
+          <div class="col-12 col-md-6 col-lg-4"><div class="t-card">
+            <div class="t-body">
+              <div class="t-head"><span class="t-name">Amber Morales</span><span class="t-stars" aria-hidden="true">★★★★★</span></div>
+              <p class="t-role">Product Designer</p>
+              <p class="t-quote-text">Duis aute irure dolor in reprehe voluptate velit esse cillum dolo sunt culpa officia.</p>
+              <p class="t-copy">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+            </div>
+            <img class="t-avatar" src="assets/images/image-here2.png" alt="Amber Morales" width="63" height="63">
+            <span class="t-quote"><img src="assets/icons/ellipse-5-3.svg" alt="" width="40" height="40"><span class="msr" aria-hidden="true">format_quote</span></span>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="t-card">
+            <div class="t-body">
+              <div class="t-head"><span class="t-name">Amber Morales</span><span class="t-stars" aria-hidden="true">★★★★★</span></div>
+              <p class="t-role">Product Designer</p>
+              <p class="t-quote-text">Duis aute irure dolor in reprehe voluptate velit esse cillum dolo sunt culpa officia.</p>
+              <p class="t-copy">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+            </div>
+            <img class="t-avatar" src="assets/icons/image-2.svg" alt="Amber Morales" width="63" height="63">
+            <span class="t-quote"><img src="assets/icons/ellipse-5-3.svg" alt="" width="40" height="40"><span class="msr" aria-hidden="true">format_quote</span></span>
+          </div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="t-card">
+            <div class="t-body">
+              <div class="t-head"><span class="t-name">Amber Morales</span><span class="t-stars" aria-hidden="true">★★★★★</span></div>
+              <p class="t-role">Product Designer</p>
+              <p class="t-quote-text">Duis aute irure dolor in reprehe voluptate velit esse cillum dolo sunt culpa officia.</p>
+              <p class="t-copy">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat sunt culpa officia deserunt mollit anim est laborum.</p>
+            </div>
+            <img class="t-avatar" src="assets/icons/image.svg" alt="Amber Morales" width="60" height="60">
+            <span class="t-quote"><img src="assets/icons/ellipse-5-3.svg" alt="" width="40" height="40"><span class="msr" aria-hidden="true">format_quote</span></span>
+          </div></div>
+        </div>
+      </div>
+      <button class="t-arrow prev" type="button" aria-label="Previous testimonials"><img src="assets/images/polygon-2.png" alt="" width="32" height="14"></button>
+      <button class="t-arrow next" type="button" aria-label="Next testimonials"><img src="assets/images/polygon-2-2.png" alt="" width="32" height="14"></button>
+    </section>
+
+    <!-- BLOG POST -->
+    <section class="component sec-blog">
+      <div class="mc-container">
+        <div class="blog-banner">
+          <h2 class="bb-title">Get Every Single Updates Here.</h2>
+          <p class="bb-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <div class="bb-nav">
+            <a class="bb-circle" href="#" aria-label="Subscribe"><img src="assets/icons/ellipse-5-2.svg" alt="" width="48" height="48"><span class="msr" aria-hidden="true">arrow_forward</span></a>
+            <a class="bb-circle small" href="#" aria-label="Updates"><img src="assets/icons/ellipse-5.svg" alt="" width="45" height="45"><span class="msr" aria-hidden="true">arrow_forward</span></a>
+          </div>
+        </div>
+        <div class="row blog-posts">
+          <div class="col-12 col-lg-6">
+            <article class="eds-card card post active">
+              <img class="post-hover" src="assets/vectors/hover.svg" alt="" width="572" height="8">
+              <div class="post-media"><img src="assets/images/image-here3.png" alt="Doctors in a meeting" width="433" height="339"></div>
+              <div class="post-panel">
+                <p class="post-date">25, February, 2019</p>
+                <h3 class="post-title">If you find your self constantly book marking and health sections.</h3>
+                <a class="post-more" href="#"><span class="link-text">Read more</span><span class="msr" aria-hidden="true">arrow_forward</span></a>
+                <p class="post-ago">5 hours ago</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-lg-6">
+            <article class="eds-card card post">
+              <div class="post-media"><img src="assets/images/image-here4.png" alt="Medical team discussion" width="512" height="341"></div>
+              <div class="post-panel">
+                <p class="post-date">25, February, 2019</p>
+                <h3 class="post-title">If you find your self constantly book marking and health sections.</h3>
+                <a class="post-more" href="#"><span class="link-text">Read more</span><span class="msr" aria-hidden="true">arrow_forward</span></a>
+                <p class="post-ago">5 hours ago</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="eds-footer">
+    <div class="component eds-footer">
+      <div class="footer-main">
+        <div class="mc-container">
+          <div class="row footer-cols">
+            <div class="col-12 col-md-6 col-lg-3 f-col f-c1">
+              <div class="f-logo">
+                <img src="assets/images/heartbeat.png" alt="Medicust heartbeat logo" width="62" height="54">
+                <span>Medicust</span>
+              </div>
+              <p class="f-about">Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut  magna aliqua.</p>
+              <div class="f-social">
+                <a class="f-soc" href="#" aria-label="Facebook"><img src="assets/icons/border-2.svg" alt="" width="44" height="45"><span>f</span></a>
+                <a class="f-soc fill" href="#" aria-label="Twitter"><img src="assets/icons/border.svg" alt="" width="45" height="45"><span>t</span></a>
+                <a class="f-soc" href="#" aria-label="LinkedIn"><img src="assets/icons/border.svg" alt="" width="45" height="45"><span>in</span></a>
+              </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 f-col f-c2">
+              <h4 class="f-h">Deaprtments</h4>
+              <ul class="f-list">
+                <li><a href="#">Family Medicine</a></li>
+                <li><a href="#">Women’s Health</a></li>
+                <li><a href="#">Optician</a></li>
+                <li><a href="#">Pediatrics</a></li>
+                <li><a href="#">Dermatology</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 f-col f-c3">
+              <h4 class="f-h">Quick Links</h4>
+              <ul class="f-list">
+                <li><a href="#">Our Doctors</a></li>
+                <li><a href="#">Appointment</a></li>
+                <li><a href="#">Blog Post</a></li>
+                <li><a href="#">Shop Product</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 f-col f-c4">
+              <h4 class="f-h">Blog Post</h4>
+              <div class="f-post">
+                <p class="f-date">22.05.2019</p>
+                <p class="f-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+              </div>
+              <div class="f-post">
+                <p class="f-date">22.05.2019</p>
+                <p class="f-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <p>Copyright&nbsp; 2019&nbsp; All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
